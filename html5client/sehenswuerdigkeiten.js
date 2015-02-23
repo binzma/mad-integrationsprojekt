@@ -10,11 +10,10 @@ var myLocationCategories = [
         "locations": [
             {
                 "name": "Bundeshause",
-                "beschreibung": "bla1 bla bla bla bla ... ",
                 "lat": 46.947698,
                 "long": 7.424653,
-                "imageSrc": "avaScript Tutorial",
-                "content": "avaScript Tutorial",
+                "imageSrc": "images/BundesHuse.png",
+                "content": "bla1 bla bla bla bla ... ",
                 "link": "http://www.bs.ch"
             }
         ]
@@ -25,20 +24,18 @@ var myLocationCategories = [
         "locations": [
             {
                 "name": "infoText",
-                "beschreibung": "bla2 bla bla bla bla ... ",
+                "content": "bla2 bla bla bla bla ... ",
                 "lat": 46.946584,
                 "long": 7.444051,
                 "imageSrc": "avaScript Tutorial",
-                "content": "avaScript Tutorial",
                 "link": "http://www.bs.ch"
             },
             {
                 "name": "Natural History Museum",
-                "beschreibung": "bla3 bla bla bla bla ... ",
+                "content": "bla3 bla bla bla bla ... ",
                 "lat": 46.942142,
                 "long": 7.448922,
                 "imageSrc": "avaScript Tutorial",
-                "content": "avaScript Tutorial",
                 "link": "http://www.bs.ch"
             }
         ]
