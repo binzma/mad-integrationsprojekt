@@ -11,8 +11,15 @@
 
     <script src="bower_components/lodash/lodash.min.js"></script>
 
-    <script src="index.js"></script>
-    <script src="sehenswuerdigkeiten.js"></script>
+    <script src="sehenswuerdigkeitenPanel.js"></script>
+    <script src="sehenswuerdigkeitenJSON.js"></script>
+    <script src="map.js"></script>
+
+    <script language="javascript">
+        $(function() {
+            Map.init()
+        });
+    </script>
 
 </head>
 <body>
@@ -22,134 +29,7 @@
     <p>Some text..</p>
 </div>
 
-
 <div id="map" style="width: 1200px; height: 800px;"></div>
-
-<script type="text/javascript">
-    var infoText = '" <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'+
-    '<html xmlns="http://www.w3.org/1999/xhtml">'+
-    '<head>'+
-    '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />'+
-    '<title>Untitled Document</title>'+
-    '</head>'+
-    ' <body>'+
-    '<table width="200" border="0">'+
-    ' <tr>'+
-    '<td colspan="3"><div align="left"><img src="../images/BundesHuse.png" width="165" height="85" alt="" longdesc="file:/image/BundesHuse.png" /></div></td>'+
-    '</tr>'+
-    '<tr>'+
-    '<td colspan="3"><strong>Bundeshaus bern</strong></td>'+
-    '</tr>'+
-    '<tr>'+
-    '<td colspan="3">Als Bundeshaus wird der Sitz von Regierung und Parlament der Schweizerischen Eidgenossenschaft in der Bundesstadt Bern bezeichnet. </td>'+
-    '</tr>'+
-    '<tr>'+
-    '<td colspan="3"><a href="http://www.parlament.ch/d/service-presse/fuehrungen/seiten/default.aspx">Webseit</a></td>'+
-    ' </tr>'+
-    '<tr>'+
-    '<td><a class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-" href="#">Direction</a></td>'+
-    '<td>But_to_Rout</td>'+
-    '<td>&nbsp;</td>'+
-    '</tr>'+
-    '</table>'+
-    ' </body>'+
-    '</html> ".';
-
-
-
-    // Setup the different icons and shadows
-    var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
-
-    var icons = [
-        iconURLPrefix + 'red-dot.png'
-    ]
-    var icons_length = icons.length;
-
-
-    var shadow = {
-        anchor: new google.maps.Point(15,33),
-        url: iconURLPrefix + 'msmarker.shadow.png'
-    };
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: new google.maps.LatLng(46.946643, 7.443965),
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        mapTypeControl: false,
-        streetViewControl: false,
-        panControl: false,
-        zoomControlOptions: {
-            position: google.maps.ControlPosition.LEFT_BOTTOM
-        }
-    });
-
-    var infowindow = new google.maps.InfoWindow({
-        maxWidth: 200
-
-    });
-
-    var marker;
-    var markers = new Array();
-
-    var iconCounter = 0;
-
-
-    _.each(myLocationCategories, function(myLocationCategory){
-
-        var typ = myLocationCategory.typ;
-
-        _.each(myLocationCategory.locations, function(myLocation){
-
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng( myLocation.lat ,myLocation.long ),
-                map: map,
-                icon : icons[iconCounter],
-                shadow: shadow
-            });
-
-            markers.push(marker);
-            // Add Event Listener to the Marked Position
-
-            google.maps.event.addListener(marker, 'click', (function(marker) {
-                return function()
-                {
-                    $( "#sehenswuerdigkeitPanel" ).html( SehenswuerdigkeitenPanel.getHtml(myLocation) );
-                    $( "#sehenswuerdigkeitPanel" ).panel( "open" );
-                }
-            })(marker));
-
-            iconCounter++;
-            // We only have a limited number of possible icon colors, so we may have to restart the counter
-            if(iconCounter >= icons_length){
-                iconCounter = 0;
-            }
-
-        });
-
-    })
-
-
-    function AutoCenter() {
-        //  Create a new viewpoint bound
-        var bounds = new google.maps.LatLngBounds();
-        //  Go through each...
-        $.each(markers, function (index, marker) {
-            bounds.extend(marker.position);
-        });
-        //  Fit these bounds to the map
-        map.fitBounds(bounds);
-    }
-    AutoCenter();
-
-
-
-</script>
-
-
-<div data-role="main" class="ui-content">
-    <p>Click on the button below to open the Panel.</p>
-    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
-</div>
 
 
 </body>
