@@ -60,7 +60,7 @@
 
     ];
 
-    var mylocation = [
+    var myLocations = [
         {
             "name": "<h4>Bundeshause</h4>",
             "lat": 46.946584,
@@ -125,9 +125,9 @@
     var iconCounter = 0;
 
     // Add the markers and infowindows to the map
-    for (var i = 0; i < mylocations.length; i++) {
+    for (var i = 0; i < myLocations.length; i++) {
         marker = new google.maps.Marker({
-            position: new google.maps.LatLng( mylocations[i][1] ,mylocations[i][2] ),
+            position: new google.maps.LatLng( myLocations[i].lat ,myLocations[i].long ),
             map: map,
             icon : icons[iconCounter],
             shadow: shadow
@@ -138,7 +138,7 @@
         google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
             return function()
             {
-                infowindow.setContent( mylocations[i][0] );
+                infowindow.setContent( myLocations[i].name );
                 infowindow.open(map, marker);         // Open Info window
                 // map.setCenter(marker.getPosition());  // Make the click position center
             }
