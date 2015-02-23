@@ -41,12 +41,12 @@
 
 <script type="text/javascript">
     // Define your locations: HTML content for the info window, latitude, longitude
+    // Define your locations: HTML content for the info window, latitude, longitude
     var locations = [
         ['<h4>Bundeshause</h4>', 46.946584, 7.444051],
         ['<h4>Insel Spital</h4>', 46.947698, 7.424653],
         ['<h4>Natural History Museum</h4>',46.942142, 7.448922],
-        /*      ['<h4>Manly Beach</h4>', -33.80010128657071, 151.28747820854187],
-         ['<h4>Maroubra Beach</h4>', -33.950198, 151.259302]*/
+
     ];
 
     // Setup the different icons and shadows
@@ -77,6 +77,7 @@
 
     var infowindow = new google.maps.InfoWindow({
         maxWidth: 160
+
     });
 
     var marker;
@@ -94,11 +95,16 @@
         });
 
         markers.push(marker);
+        // Add Event Listener to the Marked Position
+        google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+            return function()
+            {
 
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-                infowindow.setContent(locations[i][0]);
-                infowindow.open(map, marker);
+
+                infowindow.setContent( locations[i][0]);
+                infowindow.open(map, marker);         // Open Info window
+                // map.setCenter(marker.getPosition());  // Make the click position center
+
             }
         })(marker, i));
 
@@ -120,6 +126,8 @@
         map.fitBounds(bounds);
     }
     AutoCenter();
+
+
 </script>
 
 
