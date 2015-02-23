@@ -20,7 +20,7 @@ var Map = (function () {
         var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
         var icons = [
             iconURLPrefix + 'red-dot.png'
-        ]
+        ];
         var icons_length = icons.length;
         var shadow = {
             anchor: new google.maps.Point(15, 33),
