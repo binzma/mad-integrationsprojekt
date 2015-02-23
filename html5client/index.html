@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<div data-role="panel" id="myPanel">
+<div data-role="panel" id="sehenswuerdigkeitPanel">
     <h2>Panel Header..</h2>
     <p>Some text..</p>
 </div>
@@ -157,6 +157,13 @@
                     infowindow.setContent( myLocation.name );
                     infowindow.open(map, marker);         // Open Info window
                     // map.setCenter(marker.getPosition());  // Make the click position center
+                }
+            })(marker));
+
+            google.maps.event.addListener(marker, 'click', (function(marker) {
+                return function()
+                {
+                    $( "#sehenswuerdigkeitPanel" ).panel( "toggle" );
                 }
             })(marker));
 
