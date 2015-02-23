@@ -58,48 +58,26 @@
     var myLocationCategories = [
         {
             "name": "category 1",
+            "typ": "bankomat",
             "locations": [
-                {
-                    "name": infoText,
-                    "lat": 46.946584,
-                    "long": 7.444051,
-                    "imageSrc": "avaScript Tutorial",
-                    "content": "avaScript Tutorial",
-                    "link": "http://www.bs.ch"
-                },
                 {
                     "name": "<h4>Bundeshause</h4>",
                     "lat": 46.947698,
                     "long": 7.424653,
-                    "imageSrc": "avaScript Tutorial",
-                    "content": "avaScript Tutorial",
-                    "link": "http://www.bs.ch"
-                },
-                {
-                    "name": "<h4>Natural History Museum</h4>",
-                    "lat": 46.942142,
-                    "long": 7.448922,
                     "imageSrc": "avaScript Tutorial",
                     "content": "avaScript Tutorial",
                     "link": "http://www.bs.ch"
                 }
             ]
         },
-        /*{
+        {
             "name": "category 2",
+            "typ": "museum",
             "locations": [
                 {
                     "name": infoText,
                     "lat": 46.946584,
                     "long": 7.444051,
-                    "imageSrc": "avaScript Tutorial",
-                    "content": "avaScript Tutorial",
-                    "link": "http://www.bs.ch"
-                },
-                {
-                    "name": "<h4>Bundeshause</h4>",
-                    "lat": 46.947698,
-                    "long": 7.424653,
                     "imageSrc": "avaScript Tutorial",
                     "content": "avaScript Tutorial",
                     "link": "http://www.bs.ch"
@@ -113,7 +91,7 @@
                     "link": "http://www.bs.ch"
                 }
             ]
-        }*/
+        }
 
 
     ];
@@ -157,6 +135,8 @@
 
     _.each(myLocationCategories, function(myLocationCategory){
 
+        var typ = myLocationCategory.typ;
+
         _.each(myLocationCategory.locations, function(myLocation){
 
             marker = new google.maps.Marker({
@@ -171,6 +151,9 @@
             google.maps.event.addListener(marker, 'mouseover', (function(marker) {
                 return function()
                 {
+                    if(typ === 'bankomat'){
+                        alert("hi, ich bin ein bankomat");
+                    }
                     infowindow.setContent( myLocation.name );
                     infowindow.open(map, marker);         // Open Info window
                     // map.setCenter(marker.getPosition());  // Make the click position center
