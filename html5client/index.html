@@ -9,6 +9,7 @@
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
+    <script src="bower_components/lodash/lodash.min.js"></script>
 
 </head>
 <body>
@@ -54,32 +55,67 @@
 
     // Define your locations: HTML content for the info window, latitude, longitude
 
-    var myLocations = [
+    var myLocationCategories = [
         {
-            "name": infoText,
-            "lat": 46.946584,
-            "long": 7.444051,
-            "imageSrc": "avaScript Tutorial",
-            "content": "avaScript Tutorial",
-            "link": "http://www.bs.ch"
+            "name": "category 1",
+            "locations": [
+                {
+                    "name": infoText,
+                    "lat": 46.946584,
+                    "long": 7.444051,
+                    "imageSrc": "avaScript Tutorial",
+                    "content": "avaScript Tutorial",
+                    "link": "http://www.bs.ch"
+                },
+                {
+                    "name": "<h4>Bundeshause</h4>",
+                    "lat": 46.947698,
+                    "long": 7.424653,
+                    "imageSrc": "avaScript Tutorial",
+                    "content": "avaScript Tutorial",
+                    "link": "http://www.bs.ch"
+                },
+                {
+                    "name": "<h4>Natural History Museum</h4>",
+                    "lat": 46.942142,
+                    "long": 7.448922,
+                    "imageSrc": "avaScript Tutorial",
+                    "content": "avaScript Tutorial",
+                    "link": "http://www.bs.ch"
+                }
+            ]
         },
+        /*{
+            "name": "category 2",
+            "locations": [
+                {
+                    "name": infoText,
+                    "lat": 46.946584,
+                    "long": 7.444051,
+                    "imageSrc": "avaScript Tutorial",
+                    "content": "avaScript Tutorial",
+                    "link": "http://www.bs.ch"
+                },
+                {
+                    "name": "<h4>Bundeshause</h4>",
+                    "lat": 46.947698,
+                    "long": 7.424653,
+                    "imageSrc": "avaScript Tutorial",
+                    "content": "avaScript Tutorial",
+                    "link": "http://www.bs.ch"
+                },
+                {
+                    "name": "<h4>Natural History Museum</h4>",
+                    "lat": 46.942142,
+                    "long": 7.448922,
+                    "imageSrc": "avaScript Tutorial",
+                    "content": "avaScript Tutorial",
+                    "link": "http://www.bs.ch"
+                }
+            ]
+        }*/
 
-        {
-            "name": "<h4>Bundeshause</h4>",
-            "lat": 46.947698,
-            "long": 7.424653,
-            "imageSrc": "avaScript Tutorial",
-            "content": "avaScript Tutorial",
-            "link": "http://www.bs.ch"
-        },
-        {
-            "name": "<h4>Natural History Museum</h4>",
-            "lat": 46.942142,
-            "long": 7.448922,
-            "imageSrc": "avaScript Tutorial",
-            "content": "avaScript Tutorial",
-            "link": "http://www.bs.ch"
-        }
+
     ];
 
     // Setup the different icons and shadows
@@ -118,32 +154,39 @@
 
     var iconCounter = 0;
 
-    // Add the markers and infowindows to the map
-    for (var i = 0; i < myLocations.length; i++) {
-        marker = new google.maps.Marker({
-            position: new google.maps.LatLng( myLocations[i].lat ,myLocations[i].long ),
-            map: map,
-            icon : icons[iconCounter],
-            shadow: shadow
+
+    _.each(myLocationCategories, function(myLocationCategory){
+
+        _.each(myLocationCategory.locations, function(myLocation){
+
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng( myLocation.lat ,myLocation.long ),
+                map: map,
+                icon : icons[iconCounter],
+                shadow: shadow
+            });
+
+            markers.push(marker);
+            // Add Event Listener to the Marked Position
+            google.maps.event.addListener(marker, 'mouseover', (function(marker) {
+                return function()
+                {
+                    infowindow.setContent( myLocation.name );
+                    infowindow.open(map, marker);         // Open Info window
+                    // map.setCenter(marker.getPosition());  // Make the click position center
+                }
+            })(marker));
+
+            iconCounter++;
+            // We only have a limited number of possible icon colors, so we may have to restart the counter
+            if(iconCounter >= icons_length){
+                iconCounter = 0;
+            }
+
         });
 
-        markers.push(marker);
-        // Add Event Listener to the Marked Position
-        google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-            return function()
-            {
-                infowindow.setContent( myLocations[i].name );
-                infowindow.open(map, marker);         // Open Info window
-                // map.setCenter(marker.getPosition());  // Make the click position center
-            }
-        })(marker, i));
+    })
 
-        iconCounter++;
-        // We only have a limited number of possible icon colors, so we may have to restart the counter
-        if(iconCounter >= icons_length){
-            iconCounter = 0;
-        }
-    }
 
     function AutoCenter() {
         //  Create a new viewpoint bound
