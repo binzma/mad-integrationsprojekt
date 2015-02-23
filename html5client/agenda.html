@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Agenda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="bower_components/lodash/lodash.min.js"></script>
+
+    <script src="agenda.js"></script>
+
+    <script language="javascript">
+        $(function() {
+            AgendaListView.init($("#agenda"));
+            AgendaListView.addItem({
+                "href": "#",
+                "title": "item1"
+            });
+            AgendaListView.addItem({
+                "href": "#",
+                "title": "item2"
+            });
+            AgendaListView.addItem({
+                "href": "#",
+                "title": "item3"
+            });
+            AgendaListView.addItem({
+                "href": "#",
+                "title": "item4"
+            });
+            AgendaListView.addItem({
+                "href": "#",
+                "title": "item5"
+            });
+
+            AgendaListView.removeItem({
+                "href": "#",
+                "title": "item4"
+            });
+
+            AgendaListView.render();
+        });
+
+    </script>
+
+</head>
+<body>
+
+<div data-role="page">
+    <div data-role="header">
+        <h1>Agenda</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+
+        <div id="agenda"></div>
+
+    </div>
+
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
