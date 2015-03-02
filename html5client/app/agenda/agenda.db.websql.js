@@ -12,8 +12,8 @@ var AgendaDatabase = (function () {
 
     return {
         fetchEntryItems: fetchEntryItems,
-        addEntryItem: addEntryItem,
-        removeEntryItem: removeEntryItem,
+        addEntry: addEntry,
+        removeEntry: removeEntry,
         init: init,
         clear: clear
     };
@@ -141,7 +141,7 @@ var AgendaDatabase = (function () {
      * @param item
      * @return promise
      */
-    function addEntryItem(item){
+    function addEntry(item){
 
         var d = $.Deferred();
 
@@ -185,7 +185,7 @@ var AgendaDatabase = (function () {
      * @param item
      * @return promise
      */
-    function removeEntryItem(item){
+    function removeEntry(item){
         var d = $.Deferred();
 
         db.transaction(function (tx) {
