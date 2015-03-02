@@ -13,18 +13,36 @@ var AgendaListView = (function () {
         '<ul id="agendaListView" data-role="listview" data-inset="true">' +
         '<% _.each(items, function(item){ %>' +
 
+
         '<li>' +
-        '<a href="#">' +
 
-        '<h3><%- item.name %></h3>' +
-        '<p><%- item.content %></p>' +
+        '<div class="ui-grid-b">' +
+        '<div class="ui-block-a" style="width: 80px;">' +
 
-        '<div class="ui-li-aside" data-role="controlgroup" data-type="horizontal" >' +
-        '<a href="index.html" data-role="button" data-icon="navigation" data-iconpos="notext">Down</a>' +
-        '<a href="index.html" data-role="button" data-icon="delete" data-iconpos="notext">Delete</a>' +
+        '<div data-role="fieldcontain">' +
+        '<img src="<%- item.imageSrc %>">' +
         '</div>' +
-        '</a>' +
+
+        '</div>' +
+        '<div class="ui-block-b" style="width: 60%;">' +
+
+        '<div data-role="fieldcontain">' +
+        '<h4><%- item.name %></h4>' +
+        '<p><%- item.content %></p>' +
+        '</div>' +
+
+        '</div>' +
+        '<div class="ui-block-c" style="width: 6%; padding-top: 5px; float: right;">' +
+        '<div style="float: right; margin-right: 7px;">' +
+        '<a href="index.html" data-role="button" data-icon="navigation" data-iconpos="notext">Route</a>' +
+        '<a href="javascript: AgendaListView.removeItem({\'id\': <%- item.id %>});" data-role="button" data-icon="delete" data-iconpos="notext">Delete</a>' +
+        '</div>' +
+
+        '</div>' +
+        '</div>' +
+
         '</li>' +
+
         '<% }); %>' +
         '</ul>'
     );
@@ -100,7 +118,7 @@ var AgendaListView = (function () {
      * @param item
      */
     function addItem(item){
-        AgendaDatabase.addEntryItem(item).done(function(id){
+        AgendaDatabase.addEntry(item).done(function(id){
             // add generated id from db
             item.id = id;
             // add item to cache
@@ -116,7 +134,7 @@ var AgendaListView = (function () {
      * @param item
      */
     function removeItem(item){
-        AgendaDatabase.removeEntryItem(item).done(function(){
+        AgendaDatabase.removeEntry(item).done(function(){
             // remove all items that have the same title as the item to remove from cache
             data.items = data.items.filter(function(listElt){
                 return listElt.id !== item.id;
