@@ -22,7 +22,8 @@ var AgendaListView = (function () {
         addItem: addItem,
         removeItem: removeItem,
         init: init,
-        clear: clear
+        clear: clear,
+        loadItemsFromDatabase: loadItemsFromDatabase
     };
 
     /**
@@ -46,6 +47,7 @@ var AgendaListView = (function () {
 
     /**
      * Writes the items from the database into the cache.
+     * Existing cache will be overwritten.
      *
      * @return promise
      */
@@ -86,7 +88,12 @@ var AgendaListView = (function () {
      * @param item
      */
     function addItem(item){
-        _addItemData(item).done(function(){
+        AgendaDatabase.addEntryItem(item).done(function(id){
+            // add generated id from db
+            item.id = id;
+            // add item to cache
+            data.items.push(item);
+
             render();
         });
     }
@@ -97,45 +104,14 @@ var AgendaListView = (function () {
      * @param item
      */
     function removeItem(item){
-        _removeItemData(item).done(function(){
+        AgendaDatabase.removeEntryItem(item).done(function(){
+            // remove all items that have the same title as the item to remove from cache
+            data.items = data.items.filter(function(listElt){
+                return listElt.id !== item.id;
+            });
+
             render();
         });
-    }
-
-    /**
-     * Adds an item.
-     *
-     * @param item
-     * @return promise
-     */
-    function _addItemData(item){
-
-        var d = $.Deferred();
-
-        AgendaDatabase.addEntryItem(item).done(function(id){
-            // add generated id from db
-            item.id = id;
-            // add item to cache
-            data.items.push(item);
-
-            d.resolve();
-        });
-
-        return d;
-    }
-
-    /**
-     * Removes an item.
-     *
-     * @param item
-     * @return promise
-     */
-    function _removeItemData(item){
-        // remove all items that have the same title as the item to remove from cache
-        data.items = data.items.filter(function(listElt){
-            return listElt.id !== item.id;
-        });
-        return AgendaDatabase.removeEntryItem(item);
     }
 
     /**
