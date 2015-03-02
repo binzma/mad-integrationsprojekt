@@ -20,7 +20,7 @@ var AgendaListView = (function () {
         '<div class="ui-block-a" style="width: 80px;">' +
 
         '<div data-role="fieldcontain">' +
-        '<img src="<%- item.imageSrc %>">' +
+        '<img style="height: 70px; width: 70px;" src="<%- item.imageSrc %>">' +
         '</div>' +
 
         '</div>' +
