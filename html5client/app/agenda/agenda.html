@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Agenda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="../../bower_components/lodash/lodash.min.js"></script>
+
+    <script src="agenda.js"></script>
+    <script src="agenda.db.websql.js"></script>
+
+    <script language="javascript">
+        $(function() {
+
+
+            AgendaDatabase.init().done(function(){
+
+                AgendaDatabase.addEntryItem({
+                    "name": "infoText",
+                    "content": "bla2 bla bla bla bla ... ",
+                    "lat": 46.946584,
+                    "long": 7.444051,
+                    "imageSrc": "avaScript Tutorial",
+                    "link": "http://www.bs.ch",
+                    "date": "20.02.2015,15:00"
+                }).done(function(){
+                    AgendaDatabase.addEntryItem({
+                        "name": "Natural History Museum",
+                        "content": "bla3 bla bla bla bla ... ",
+                        "lat": 46.942142,
+                        "long": 7.448922,
+                        "imageSrc": "avaScript Tutorial",
+                        "link": "http://www.bs.ch",
+                        "date": "20.02.2015,16:00"
+                    }).done(function(){
+                        AgendaDatabase.removeEntryItem({
+                            "id": "1"
+                        }).done(function(){
+                            alert("db done");
+                            AgendaListView.init($("#agenda")).done(function(){
+                                AgendaListView.render();
+                                alert("listview done");
+                            });
+                        });
+                    });
+                });
+            });
+
+//
+//            AgendaListView.init($("#agenda")).done(function(){
+//
+//                AgendaListView.addItemAndRerender({
+//                    "name": "infoText",
+//                    "content": "bla2 bla bla bla bla ... ",
+//                    "lat": 46.946584,
+//                    "long": 7.444051,
+//                    "imageSrc": "avaScript Tutorial",
+//                    "link": "http://www.bs.ch",
+//                    "date": "20.02.2015,15:00"
+//                });
+//
+//                AgendaListView.addItemAndRerender({
+//                    "name": "Natural History Museum",
+//                    "content": "bla3 bla bla bla bla ... ",
+//                    "lat": 46.942142,
+//                    "long": 7.448922,
+//                    "imageSrc": "avaScript Tutorial",
+//                    "link": "http://www.bs.ch",
+//                    "date": "20.02.2015,16:00"
+//                });
+//
+//
+//                AgendaListView.removeItemAndRerender({
+//                    "id": "1"
+//                });
+//
+//            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+<div data-role="page">
+    <div data-role="header">
+        <h1>Agenda</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+
+        <div id="agenda"></div>
+
+    </div>
+
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
