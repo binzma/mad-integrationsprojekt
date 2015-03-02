@@ -12,7 +12,19 @@ var AgendaListView = (function () {
     var listViewTemplate = _.template(
         '<ul id="agendaListView" data-role="listview" data-inset="true">' +
         '<% _.each(items, function(item){ %>' +
-        '<li><a href="<%- item.link %>"><%- item.name %></a></li>' +
+
+        '<li>' +
+        '<a href="#">' +
+
+        '<h3><%- item.name %></h3>' +
+        '<p><%- item.content %></p>' +
+
+        '<div class="ui-li-aside" data-role="controlgroup" data-type="horizontal" >' +
+        '<a href="index.html" data-role="button" data-icon="navigation" data-iconpos="notext">Down</a>' +
+        '<a href="index.html" data-role="button" data-icon="delete" data-iconpos="notext">Delete</a>' +
+        '</div>' +
+        '</a>' +
+        '</li>' +
         '<% }); %>' +
         '</ul>'
     );
@@ -125,3 +137,4 @@ var AgendaListView = (function () {
     }
 
 })();
+
