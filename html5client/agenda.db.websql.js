@@ -14,6 +14,8 @@ var AgendaDatabase = (function () {
         fetchEntryItems: fetchEntryItems,
         addEntry: addEntry,
         removeEntry: removeEntry,
+        incrementSortIndex: incrementSortIndex,
+        decrementSortIndex: decrementSortIndex,
         init: init,
         clear: clear
     };
@@ -84,7 +86,9 @@ var AgendaDatabase = (function () {
                         'lat REAL, ' +
                         'long REAL, ' +
                         'imageSrc TEXT, ' +
-                        'link TEXT ' +
+                        'link TEXT, ' +
+                        'sortIndex INTEGER, ' +
+                        'dateAdded TEXT ' +
                     ')'
                 );
             },
@@ -113,7 +117,7 @@ var AgendaDatabase = (function () {
 
         db.transaction(function (tx) {
 
-            tx.executeSql('SELECT * FROM entries', [], function (tx, results) {
+            tx.executeSql('SELECT * FROM entries ORDER BY sortIndex ASC', [], function (tx, results) {
                     var len = results.rows.length, i, items;
 
                     items = [];
@@ -145,27 +149,40 @@ var AgendaDatabase = (function () {
 
         var d = $.Deferred();
 
+        // set dateAdded
+        item.dateAdded = $.now();
+
         db.transaction(function (tx) {
-                tx.executeSql('INSERT INTO entries (name, content, lat, long, imageSrc, link) VALUES (?, ?, ?, ?, ?, ?)', [
-                        item.name,
-                        item.content,
-                        item.lat,
-                        item.long,
-                        item.imageSrc,
-                        item.link
-                    ],
-                    function (tx, result) {
-                        console.log("Added entry " + item.name +" to db.");
 
-                        tx.executeSql('SELECT last_insert_rowid() AS rowid FROM entries LIMIT 1', [], function (tx, results) {
-                            d.resolve(results.rows.item(0).rowid);
+                tx.executeSql('SELECT sortIndex FROM entries ORDER BY sortIndex DESC LIMIT 1', [], function (tx, results) {
+                    // fetch greatest sortIndex and increase it by one
+                    item.sortIndex = results.rows.length ? parseInt(results.rows.item(0).sortIndex) + 1 : 0;
+
+                    tx.executeSql('INSERT INTO entries (name, content, lat, long, imageSrc, link, sortIndex ,dateAdded) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [
+                            item.name,
+                            item.content,
+                            item.lat,
+                            item.long,
+                            item.imageSrc,
+                            item.link,
+                            item.sortIndex,
+                            item.dateAdded
+                        ],
+                        function (tx, result) {
+                            console.log("Added entry " + item.name +" to db.");
+
+                            tx.executeSql('SELECT last_insert_rowid() AS rowid FROM entries LIMIT 1', [], function (tx, results) {
+                                item.id = results.rows.item(0).rowid;
+                                d.resolve(item);
+                            });
+
+                        },
+                        function (tx, error) {
+                            console.log("Query Error: " + error.message);
+                            d.reject();
                         });
+                });
 
-                    },
-                    function (tx, error) {
-                        console.log("Query Error: " + error.message);
-                        d.reject();
-                    });
             },
             function (error) {
                 console.log("Transaction Error: " + error.message);
@@ -177,6 +194,77 @@ var AgendaDatabase = (function () {
 
         return d;
     }
+
+
+    /**
+     * Swaps the sortIndex with the next lesserEntry.
+     *
+     * @return promise
+     */
+    function decrementSortIndex(entry){
+
+        var d = $.Deferred();
+
+        db.transaction(function (tx) {
+                // fetch id and sortIndex of the next lesserEntry
+                tx.executeSql('SELECT id, sortIndex FROM entries WHERE sortIndex < ? ORDER BY sortIndex DESC LIMIT 1', [entry.sortIndex], function (tx, results) {
+                    if(!results.rows.length){
+                        // no lesserEntry
+                        d.reject();
+                        return;
+                    }
+                    // set sortIndex of the entry to the one of the lesserEntry
+                    tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [results.rows.item(0).sortIndex, entry.id]);
+                    // set sortIndex of the lesserEntry to the one of the entry
+                    tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [entry.sortIndex, results.rows.item(0).id]);
+                })
+            },
+            function (error) {
+                console.log("Transaction Error: " + error.message);
+                d.reject();
+            },
+            function () {
+                d.resolve();
+            });
+
+        return d;
+    }
+
+
+    /**
+     * Swaps the sortIndex with the next greaterEntry.
+     *
+     * @return promise
+     */
+    function incrementSortIndex(entry){
+
+        var d = $.Deferred();
+
+        db.transaction(function (tx) {
+                // fetch id and sortIndex of the next greaterEntry
+                tx.executeSql('SELECT id, sortIndex FROM entries WHERE sortIndex > ?  ORDER BY sortIndex ASC LIMIT 1', [entry.sortIndex], function (tx, results) {
+                    if(!results.rows.length){
+                        // no greaterEntry
+                        d.reject();
+                        return;
+                    }
+                    // set sortIndex of the entry to the one of the greaterEntry
+                    tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [results.rows.item(0).sortIndex, entry.id]);
+                    // set sortIndex of the greaterEntry to the one of the entry
+                    tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [entry.sortIndex, results.rows.item(0).id]);
+                })
+            },
+            function (error) {
+                console.log("Transaction Error: " + error.message);
+                d.reject();
+            },
+            function () {
+                d.resolve();
+            });
+
+        return d;
+    }
+
 
     /**
      * Removes an item from the database by its id property.

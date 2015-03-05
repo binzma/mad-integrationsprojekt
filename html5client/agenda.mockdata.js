@@ -18,7 +18,7 @@ var Mockdata = (function () {
                 "long": 7.444051,
                 "imageSrc": "http://placehold.it/70",
                 "link": "http://www.bs.ch",
-                "date": "20.02.2015,15:00"
+                "dateAdded": "20.02.2015,15:00"
             }).done(function () {
                 AgendaDatabase.addEntry({
                     "name": "Natural History Museum",
@@ -27,7 +27,7 @@ var Mockdata = (function () {
                     "long": 7.448922,
                     "imageSrc": "http://placehold.it/70",
                     "link": "http://www.bs.ch",
-                    "date": "20.02.2015,16:00"
+                    "dateAdded": "20.02.2015,16:00"
                 }).done(function () {
                     AgendaDatabase.removeEntry({
                         "id": "1"
