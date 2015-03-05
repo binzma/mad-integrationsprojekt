@@ -113,6 +113,7 @@ var AgendaListView = (function () {
      * @param item
      */
     function moveItemUp(item){
+        console.log(item);
         AgendaDatabase.decrementSortIndex(item).done(function(){
             loadItemsFromDatabase().done(function(){
                 render();
@@ -126,6 +127,7 @@ var AgendaListView = (function () {
      * @param item
      */
     function moveItemDown(item){
+        console.log(item);
         AgendaDatabase.incrementSortIndex(item).done(function(){
             loadItemsFromDatabase().done(function(){
                 render();
