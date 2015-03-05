@@ -23,11 +23,10 @@ var AgendaTemplates = (function () {
 
             '<div data-role="popup" id="actionsDialog<%- item.id %>" data-theme="b">' +
             '<ul data-role="listview" data-inset="true" style="min-width:210px;">' +
-            '<li data-role="list-divider">Choose an action</li>' +
-            '<li><a href="#">Route details</a></li>' +
-            '<li><a href="#deleteDialog<%- item.id %>">Delete</a></li>' +
-            '<li><a href="#" onclick="AgendaListView.moveItemUp({\'id\': <%- item.id %>, \'sortIndex\': <%- item.sortIndex %>});">Up</a></li>' +
-            '<li><a href="#" onclick="AgendaListView.moveItemDown({\'id\': <%- item.id %>, \'sortIndex\': <%- item.sortIndex %>});">Down</a></li>' +
+            '<li><a href="#" data-role="button" data-icon="navigation">Route details</a></li>' +
+            '<li><a href="#deleteDialog<%- item.id %>" data-rel="popup" data-position-to="window" data-transition="pop" data-role="button" data-icon="delete">Delete</a></li>' +
+            '<li><a href="#" onclick="AgendaListView.moveItemUp({\'id\': <%- item.id %>, \'sortIndex\': <%- item.sortIndex %>});" data-role="button" data-icon="arrow-u">Up</a></li>' +
+            '<li><a href="#" onclick="AgendaListView.moveItemDown({\'id\': <%- item.id %>, \'sortIndex\': <%- item.sortIndex %>});" data-role="button" data-icon="arrow-d">Down</a></li>' +
             '</ul>' +
             '</div>' +
 
