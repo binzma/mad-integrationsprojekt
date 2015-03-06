@@ -65,6 +65,7 @@ bernApp.RoutesDatabase = (function () {
      */
     function addRoute(){
         // TODO
+        console.log('adding route... ');
     }
 
     /**
@@ -74,6 +75,7 @@ bernApp.RoutesDatabase = (function () {
      */
     function removeRoute(){
         // TODO
+        console.log('removing route... ');
     }
 
     /**
@@ -83,6 +85,7 @@ bernApp.RoutesDatabase = (function () {
      */
     function addPOI(){
         // TODO
+        console.log('adding POI... ');
     }
 
     /**
@@ -92,6 +95,7 @@ bernApp.RoutesDatabase = (function () {
      */
     function removePOI(){
         // TODO
+        console.log('removing POI... ');
     }
 
 
