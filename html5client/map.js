@@ -32,7 +32,7 @@ bernApp.Map = (function () {
      * @private
      */
     function _getPOIData(){
-        return $.getJSON("pointsOfInterest.json");
+        return $.getJSON("poiData/pointsOfInterest.json");
     }
 
     /**
