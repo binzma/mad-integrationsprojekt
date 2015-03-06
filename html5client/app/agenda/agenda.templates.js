@@ -24,7 +24,7 @@ bernApp.AgendaTemplates = (function () {
 
             '<div data-role="popup" id="actionsDialog<%- item.id %>" data-theme="b">' +
             '<ul data-role="listview" data-inset="true" style="min-width:210px;">' +
-            '<li><a href="#" onclick="bernApp.Navigation.getDirections({\'id\': <%- item.id %>});" data-role="button" data-icon="navigation">Show directions</a></li>' +
+            '<li><a href="#" onclick="bernApp.Navigation.getDirections({\'id\': <%- item.id %>});" data-role="button" data-icon="navigation">Get directions</a></li>' +
             '<li><a href="#" onclick="bernApp.Navigation.agendaDelete({\'id\': <%- item.id %>});" data-role="button" data-icon="delete">Delete entry</a></li>' +
             '<li><a href="#" onclick="bernApp.Navigation.agendaUp({\'id\': <%- item.id %>});" data-role="button" data-icon="arrow-u">Move up</a></li>' +
             '<li><a href="#" onclick="bernApp.Navigation.agendaDown({\'id\': <%- item.id %>});" data-role="button" data-icon="arrow-d">Move down</a></li>' +
