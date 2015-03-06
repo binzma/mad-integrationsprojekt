@@ -1,5 +1,5 @@
 /**
- * Created by U114902 on 06.03.2015.
+ * Created by maenu on 06.03.2015.
  */
 
 var bernApp = bernApp || {};
