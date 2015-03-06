@@ -13,10 +13,9 @@ bernApp.Utils = (function () {
     };
 
 
-
     /**
      * Sets the height of the element matched by selector to the page height
-     * minus heightOfHeaderAndFooter.
+     * minus bordersHeight.
      *
      * @param selector
      */
