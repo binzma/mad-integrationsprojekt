@@ -1,11 +1,12 @@
 /**
  * Created by U114902 on 05.03.2015.
  */
+var bernApp = bernApp || {};
 
 /**
  * Module that provides templates for the agenda.
  */
-var AgendaTemplates = (function () {
+bernApp.AgendaTemplates = (function () {
 
     return {
         listViewTemplate: _.template(
@@ -23,10 +24,10 @@ var AgendaTemplates = (function () {
 
             '<div data-role="popup" id="actionsDialog<%- item.id %>" data-theme="b">' +
             '<ul data-role="listview" data-inset="true" style="min-width:210px;">' +
-            '<li><a href="#" data-role="button" data-icon="navigation">Route details</a></li>' +
-            '<li><a href="#deleteDialog<%- item.id %>" data-rel="popup" data-position-to="window" data-transition="pop" data-role="button" data-icon="delete">Delete</a></li>' +
-            '<li><a href="#" onclick="AgendaListView.moveItemUp({\'id\': <%- item.id %>, \'sortIndex\': <%- item.sortIndex %>});" data-role="button" data-icon="arrow-u">Up</a></li>' +
-            '<li><a href="#" onclick="AgendaListView.moveItemDown({\'id\': <%- item.id %>, \'sortIndex\': <%- item.sortIndex %>}); $(\'#actionsDialog<%- item.id %>\').popup(\'close\');" data-role="button" data-icon="arrow-d">Down</a></li>' +
+            '<li><a href="#" data-role="button" data-icon="navigation" data-rel="back">Route details</a></li>' +
+            '<li><a href="#deleteDialog<%- item.id %>"  onclick="$(\'#actionsDialog<%- item.id %>\').popup(\'close\');" data-rel="popup" data-position-to="window" data-transition="pop" data-role="button" data-icon="delete">Delete</a></li>' +
+            '<li><a href="#" onclick="bernApp.AgendaListView.moveItemUp({\'id\': <%- item.id %>}); $(\'#actionsDialog<%- item.id %>\').popup(\'close\');" data-role="button" data-icon="arrow-u">Up</a></li>' +
+            '<li><a href="#" onclick="bernApp.AgendaListView.moveItemDown({\'id\': <%- item.id %>}); $(\'#actionsDialog<%- item.id %>\').popup(\'close\');" data-role="button" data-icon="arrow-d">Down</a></li>' +
             '</ul>' +
 
 
@@ -37,7 +38,7 @@ var AgendaTemplates = (function () {
                 '<div role="main" class="ui-content">' +
                 '<h3 class="ui-title">Are you sure you want to delete this entry from the agenda?</h3>' +
                 '<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>' +
-                '<a href="#" onclick="AgendaListView.removeItem({\'id\': <%- item.id %>});" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a>' +
+                '<a href="#" onclick="bernApp.AgendaListView.removeItem({\'id\': <%- item.id %>});" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a>' +
                 '</div>' +
                 '</div>' +
 

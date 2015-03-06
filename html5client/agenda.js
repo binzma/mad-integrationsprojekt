@@ -1,11 +1,12 @@
 /**
  * Created by maenu on 23/02/2015.
  */
+var bernApp = bernApp || {};
 
 /**
  * Module that provides functionality for the agenda list view.
  */
-var AgendaListView = (function () {
+bernApp.AgendaListView = (function () {
 
     var domContainer;
     var data = {};
@@ -31,7 +32,7 @@ var AgendaListView = (function () {
 
         domContainer = domElt;
 
-        AgendaDatabase.init().done(function(){
+        bernApp.AgendaDatabase.init().done(function(){
             loadItemsFromDatabase().done(function(){
                 render();
                 d.resolve();
@@ -48,7 +49,7 @@ var AgendaListView = (function () {
      */
     function loadItemsFromDatabase(){
         var d = $.Deferred();
-        AgendaDatabase.fetchEntryItems().done(function(items){
+        bernApp.AgendaDatabase.fetchEntryItems().done(function(items){
             // write item cache
             data.items = items || [];
             d.resolve();
@@ -70,7 +71,7 @@ var AgendaListView = (function () {
      * Clear the list
      */
     function clear(){
-        AgendaDatabase.clear().done(function(){
+        bernApp.AgendaDatabase.clear().done(function(){
             // also clear cached items
             data.items = [];
             render();
@@ -83,7 +84,7 @@ var AgendaListView = (function () {
      * @param item
      */
     function addItem(item){
-        AgendaDatabase.addEntry(item).done(function(persistedItem){
+        bernApp.AgendaDatabase.addEntry(item).done(function(persistedItem){
             // add item to cache
             data.items.push(persistedItem);
 
@@ -97,7 +98,7 @@ var AgendaListView = (function () {
      * @param item
      */
     function removeItem(item){
-        AgendaDatabase.removeEntry(item).done(function(){
+        bernApp.AgendaDatabase.removeEntry(item).done(function(){
             // remove all items that have the same title as the item to remove from cache
             data.items = data.items.filter(function(listElt){
                 return listElt.id !== item.id;
@@ -113,8 +114,7 @@ var AgendaListView = (function () {
      * @param item
      */
     function moveItemUp(item){
-        console.log(item);
-        AgendaDatabase.decrementSortIndex(item).done(function(){
+        bernApp.AgendaDatabase.decrementSortIndex(item).done(function(){
             loadItemsFromDatabase().done(function(){
                 render();
             });
@@ -127,8 +127,7 @@ var AgendaListView = (function () {
      * @param item
      */
     function moveItemDown(item){
-        console.log(item);
-        AgendaDatabase.incrementSortIndex(item).done(function(){
+        bernApp.AgendaDatabase.incrementSortIndex(item).done(function(){
             loadItemsFromDatabase().done(function(){
                 render();
             });
@@ -142,7 +141,7 @@ var AgendaListView = (function () {
      * @return html string
      */
     function _getHtml(){
-        return AgendaTemplates.listViewTemplate(data);
+        return bernApp.AgendaTemplates.listViewTemplate(data);
     }
 
 })();

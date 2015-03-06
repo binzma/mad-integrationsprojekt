@@ -11,18 +11,19 @@
     <script src="bower_components/lodash/lodash.min.js"></script>
 
     <script src="agenda.js"></script>
-    <script src="agenda.db.websql.js"></script>
+    <script src="db.js"></script>
+    <script src="agenda.db.js"></script>
     <script src="agenda.templates.js"></script>
-    <script src="agenda.mockdata.js"></script>
+    <!--<script src="agenda.mockdata.js"></script>-->
 
     <script language="javascript">
         $(function() {
-            //Mockdata.load(initAgenda);
+            //bernApp.Mockdata.load(initAgenda);
             initAgenda();
         });
 
         function initAgenda(){
-            AgendaListView.init($("#agenda"));
+            bernApp.AgendaListView.init($("#agenda"));
         }
 
     </script>
@@ -34,6 +35,7 @@
 <div data-role="page">
     <div data-role="header">
         <h1>Agenda</h1>
+        <a href="index.html" class="ui-btn ui-corner-all ui-btn-inline ui-mini header-button-left ui-btn-icon-left ui-icon-home">Home</a>
     </div>
 
     <div role="main" class="ui-content">

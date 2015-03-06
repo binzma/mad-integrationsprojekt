@@ -1,12 +1,12 @@
 /**
  * Created by U114902 on 02.03.2015.
  */
-
+var bernApp = bernApp || {};
 
 /**
  * Module that abstracts the database for the agenda using WebSQL.
  */
-var AgendaDatabase = (function () {
+bernApp.AgendaDatabase = (function () {
 
     var db;
 
@@ -28,7 +28,7 @@ var AgendaDatabase = (function () {
      * @return promise
      */
     function init(){
-        db = openDatabase('agendaDb', '1.0', 'Database for the agenda.', 2 * 1024 * 1024);
+        db = bernApp.Database.open();
         return _createTables();
     }
 
@@ -206,18 +206,30 @@ var AgendaDatabase = (function () {
         var d = $.Deferred();
 
         db.transaction(function (tx) {
-                // fetch id and sortIndex of the next lesserEntry
-                tx.executeSql('SELECT id, sortIndex FROM entries WHERE sortIndex < ? ORDER BY sortIndex DESC LIMIT 1', [entry.sortIndex], function (tx, results) {
-                    if(!results.rows.length){
-                        // no lesserEntry
+                // fetch sortIndex of the current entry
+                tx.executeSql('SELECT sortIndex FROM entries WHERE id = ? ', [entry.id], function (tx, entryResults) {
+                    if (!entryResults.rows.length) {
+                        // no sortIndex for current entry
                         d.reject();
                         return;
                     }
-                    // set sortIndex of the entry to the one of the lesserEntry
-                    tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [results.rows.item(0).sortIndex, entry.id]);
-                    // set sortIndex of the lesserEntry to the one of the entry
-                    tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [entry.sortIndex, results.rows.item(0).id]);
+                    entry.sortIndex = entryResults.rows.item(0).sortIndex;
+
+                    // fetch id and sortIndex of the next lesserEntry
+                    tx.executeSql('SELECT id, sortIndex FROM entries WHERE sortIndex < ? ORDER BY sortIndex DESC LIMIT 1', [entry.sortIndex], function (tx, results) {
+                        if(!results.rows.length){
+                            // no lesserEntry
+                            d.reject();
+                            return;
+                        }
+                        // set sortIndex of the entry to the one of the lesserEntry
+                        tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [results.rows.item(0).sortIndex, entry.id]);
+                        // set sortIndex of the lesserEntry to the one of the entry
+                        tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [entry.sortIndex, results.rows.item(0).id]);
+                    })
+
                 })
+
             },
             function (error) {
                 console.log("Transaction Error: " + error.message);
@@ -241,18 +253,31 @@ var AgendaDatabase = (function () {
         var d = $.Deferred();
 
         db.transaction(function (tx) {
-                // fetch id and sortIndex of the next greaterEntry
-                tx.executeSql('SELECT id, sortIndex FROM entries WHERE sortIndex > ?  ORDER BY sortIndex ASC LIMIT 1', [entry.sortIndex], function (tx, results) {
-                    if(!results.rows.length){
-                        // no greaterEntry
+
+                // fetch sortIndex of the current entry
+                tx.executeSql('SELECT sortIndex FROM entries WHERE id = ? ', [entry.id], function (tx, entryResults) {
+                    if (!entryResults.rows.length) {
+                        // no sortIndex for current entry
                         d.reject();
                         return;
                     }
-                    // set sortIndex of the entry to the one of the greaterEntry
-                    tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [results.rows.item(0).sortIndex, entry.id]);
-                    // set sortIndex of the greaterEntry to the one of the entry
-                    tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [entry.sortIndex, results.rows.item(0).id]);
+                    entry.sortIndex = entryResults.rows.item(0).sortIndex;
+
+                    // fetch id and sortIndex of the next greaterEntry
+                    tx.executeSql('SELECT id, sortIndex FROM entries WHERE sortIndex > ?  ORDER BY sortIndex ASC LIMIT 1', [entry.sortIndex], function (tx, results) {
+                        if(!results.rows.length){
+                            // no greaterEntry
+                            d.reject();
+                            return;
+                        }
+                        // set sortIndex of the entry to the one of the greaterEntry
+                        tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [results.rows.item(0).sortIndex, entry.id]);
+                        // set sortIndex of the greaterEntry to the one of the entry
+                        tx.executeSql('UPDATE entries SET sortIndex = ? WHERE id = ?', [entry.sortIndex, results.rows.item(0).id]);
+                    })
+
                 })
+
             },
             function (error) {
                 console.log("Transaction Error: " + error.message);

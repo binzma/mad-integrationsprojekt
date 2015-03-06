@@ -11,28 +11,45 @@
 
     <script src="bower_components/lodash/lodash.min.js"></script>
 
-    <script src="sehenswuerdigkeitenPanel.js"></script>
-    <script src="sehenswuerdigkeitenJSON.js"></script>
+    <script src="pointOfInterestPanel.js"></script>
+    <script src="pointOfInterestJSON.js"></script>
     <script src="map.js"></script>
-    <script src="agenda.db.websql.js"></script>
+    <script src="map.templates.js"></script>
+    <script src="db.js"></script>
+    <script src="agenda.db.js"></script>
 
     <script language="javascript">
         $(function() {
-            Map.init();
-            AgendaDatabase.init();
+            bernApp.Map.init();
+            bernApp.AgendaDatabase.init();
         });
     </script>
 
 </head>
 <body>
 
-<div data-role="panel" id="sehenswuerdigkeitPanel">
-    <h2>Panel Header..</h2>
-    <p>Some text..</p>
+
+<div data-role="page">
+    <div data-role="header">
+        <h1>Map</h1>
+        <a href="agenda.html" class="ui-btn-right ui-btn ui-corner-all ui-btn-inline ui-mini header-button-right ui-btn-icon-right ui-icon-calendar">Agenda</a>
+    </div>
+
+    <div role="main" class="ui-content">
+
+        <div data-role="panel" id="poiPanel">
+            <h2>Panel Header..</h2>
+            <p>Some text..</p>
+        </div>
+
+        <div id="map" style="width: 350px; height: 500px;"></div>
+
+    </div>
+
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
 </div>
-
-<div id="map" style="width: 1200px; height: 800px;"></div>
-
 
 </body>
 </html>

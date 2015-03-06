@@ -1,14 +1,15 @@
 /**
  * Created by maenu on 23/02/2015.
  */
+var bernApp = bernApp || {};
 
-var Map = (function () {
+bernApp.Map = (function () {
 
     var markers, map;
 
     return {
         init: init
-    }
+    };
 
     function init(){
         _initMap();
@@ -43,7 +44,7 @@ var Map = (function () {
 
         markers = new Array();
 
-        _.each(myLocationCategories, function (myLocationCategory) {
+        _.each(bernApp.myLocationCategories, function (myLocationCategory) {
 
             _.each(myLocationCategory.locations, function (myLocation) {
 
@@ -59,8 +60,8 @@ var Map = (function () {
 
                 google.maps.event.addListener(marker, 'click', (function (marker) {
                     return function () {
-                        $("#sehenswuerdigkeitPanel").html(SehenswuerdigkeitenPanel.getHtml(myLocation));
-                        $("#sehenswuerdigkeitPanel").panel("open");
+                        $("#poiPanel").html(bernApp.PointOfInterestPanel.getHtml(myLocation));
+                        $("#poiPanel").panel("open");
                     }
                 })(marker));
 

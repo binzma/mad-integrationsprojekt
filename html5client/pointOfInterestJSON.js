@@ -1,9 +1,10 @@
 /**
  * Created by maenu on 23/02/2015.
  */
+var bernApp = bernApp || {};
 
 
-var myLocationCategories = [
+bernApp.myLocationCategories = [
     {
         "name": "category 1",
         "typ": "bankomat",

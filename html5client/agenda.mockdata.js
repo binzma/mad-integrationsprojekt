@@ -2,16 +2,18 @@
  * Created by maenu on 02.03.2015.
  */
 
-var Mockdata = (function () {
+var bernApp = bernApp || {};
+
+bernApp.Mockdata = (function () {
 
     return {
         load: load
     };
 
     function load(callback) {
-        AgendaDatabase.init().done(function () {
+        bernApp.AgendaDatabase.init().done(function () {
 
-            AgendaDatabase.addEntry({
+            bernApp.AgendaDatabase.addEntry({
                 "name": "infoText",
                 "content": "bla2 bla bla bla bla ... ",
                 "lat": 46.946584,
@@ -20,7 +22,7 @@ var Mockdata = (function () {
                 "link": "http://www.bs.ch",
                 "dateAdded": "20.02.2015,15:00"
             }).done(function () {
-                AgendaDatabase.addEntry({
+                bernApp.AgendaDatabase.addEntry({
                     "name": "Natural History Museum",
                     "content": "bla3 bla bla bla bla ... ",
                     "lat": 46.942142,
@@ -29,7 +31,7 @@ var Mockdata = (function () {
                     "link": "http://www.bs.ch",
                     "dateAdded": "20.02.2015,16:00"
                 }).done(function () {
-                    AgendaDatabase.removeEntry({
+                    bernApp.AgendaDatabase.removeEntry({
                         "id": "1"
                     }).done(function () {
                         callback();
