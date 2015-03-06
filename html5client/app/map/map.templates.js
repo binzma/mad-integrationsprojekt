@@ -10,13 +10,16 @@ bernApp.MapTemplates = (function () {
 
     return {
         poiPanelTemplate: _.template(
+            '<div id="poiPanelContents">' +
             '<h1><%- data.name %></h1>' +
             '<img class="mapPanelImg" src="../poiData/<%- data.imageSrc %>">' +
             '<p><%- data.content %></p>' +
-            '<a href="<%- data.link %>"><%- data.link %></a>' +
             '<p />' +
-            '<a class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-" href="#">Directions</a>' +
-            '<a href="#" data-ajax="false" onclick="bernApp.Navigation.addPOI(<%- json %>);" class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-" >Add to agenda</a>'
+            '<a href="<%- data.link %>" rel="external" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-action">Visit homepage</a>' +
+            '<a href="#" data-ajax="false" onclick="bernApp.Navigation.getDirections(<%- json %>);"  class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-navigation">Get directions</a>' +
+            '<a href="#" data-ajax="false" onclick="bernApp.Navigation.addPOI(<%- json %>);"  class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-plus">Add to agenda</a>' +
+
+            '</div>'
         )
     };
 

@@ -26,6 +26,14 @@
         "link": "http://www.bs.ch"
       },
       {
+        "name": "asdfasdf asdf sadf sadf asdf asdf",
+        "content": "bla2 bla bla bla bla adsfa dfasdf asdfasdf asdf adsf",
+        "lat": 46.945564,
+        "long": 7.446021,
+        "imageSrc": "images/images2.png",
+        "link": "http://www.bsasdasdfasdfasdfasdfasdfasdfasdf.ch"
+      },
+      {
         "name": "Natural History Museum",
         "content": "bla3 bla bla bla bla ... ",
         "lat": 46.942142,

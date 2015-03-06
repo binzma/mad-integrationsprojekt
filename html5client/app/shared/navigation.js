@@ -14,7 +14,7 @@ bernApp.Navigation = (function () {
         agendaUp: agendaUp,
         agendaDown: agendaDown,
         agendaDelete: agendaDelete,
-        agendaDirections: agendaDirections
+        getDirections: getDirections
     };
 
     /**
@@ -65,13 +65,13 @@ bernApp.Navigation = (function () {
      *
      * @param item
      */
-    function agendaDirections(item){
+    function getDirections(item){
+        alert("TODO");
         // TODO: create directions
         bernApp.RoutesDatabase.addRoute();
 
         window.location = "../map/map.html";
     }
-
 
 
 })();

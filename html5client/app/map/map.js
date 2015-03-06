@@ -21,7 +21,6 @@ bernApp.Map = (function () {
         _getPOIData().done(function(myLocationData){
             _initMap(myLocationData);
             _centerMap();
-            bernApp.Utils.maximizeHeight('#mapContentContainer', 150);
         });
     }
 
