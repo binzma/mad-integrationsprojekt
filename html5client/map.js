@@ -21,6 +21,7 @@ bernApp.Map = (function () {
         _getPOIData().done(function(myLocationData){
             _initMap(myLocationData);
             _centerMap();
+            _maximizeHeight('#mapContentContainer', 150);
         });
     }
 
@@ -32,6 +33,17 @@ bernApp.Map = (function () {
      */
     function _getPOIData(){
         return $.getJSON("pointsOfInterest.json");
+    }
+
+    /**
+     * Sets the height of the element matched by selector to the page height
+     * minus heightOfHeaderAndFooter.
+     *
+     * @param selector
+     * @private
+     */
+    function _maximizeHeight(selector, bordersHeight){
+        $(selector).height(($(window).height() - (bordersHeight || 0)) + 'px');
     }
 
     /**
@@ -53,7 +65,7 @@ bernApp.Map = (function () {
         var iconCounter = 0;
 
 
-        map = new google.maps.Map(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('mapCanvas'), {
             zoom: 10,
             center: new google.maps.LatLng(46.946643, 7.443965),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
