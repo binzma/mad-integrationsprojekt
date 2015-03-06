@@ -3,6 +3,9 @@
  */
 var bernApp = bernApp || {};
 
+/**
+ * Module for the map
+ */
 bernApp.Map = (function () {
 
     var markers, map;
@@ -11,12 +14,32 @@ bernApp.Map = (function () {
         init: init
     };
 
+    /**
+     * Inits the map
+     */
     function init(){
-        _initMap();
-        _centerMap()
+        _getPOIData().done(function(myLocationData){
+            _initMap(myLocationData);
+            _centerMap();
+        });
     }
 
-    function _initMap() {
+    /**
+     * Loads the contents of the json file
+     *
+     * @returns promise
+     * @private
+     */
+    function _getPOIData(){
+        return $.getJSON("pointsOfInterest.json");
+    }
+
+    /**
+     * Initializes the map
+     *
+     * @private
+     */
+    function _initMap(myLocationData) {
 
         var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
         var icons = [
@@ -44,7 +67,7 @@ bernApp.Map = (function () {
 
         markers = new Array();
 
-        _.each(bernApp.myLocationCategories, function (myLocationCategory) {
+        _.each(myLocationData, function (myLocationCategory) {
 
             _.each(myLocationCategory.locations, function (myLocation) {
 
@@ -76,6 +99,11 @@ bernApp.Map = (function () {
         });
     }
 
+    /**
+     * Centers the map
+     *
+     * @private
+     */
     function _centerMap() {
         //  Create a new viewpoint bound
         var bounds = new google.maps.LatLngBounds();

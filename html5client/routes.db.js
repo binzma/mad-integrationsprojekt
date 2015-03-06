@@ -4,9 +4,9 @@
 var bernApp = bernApp || {};
 
 /**
- * Module that abstracts the database for the routing using WebSQL.
+ * Module that abstracts the database for the routes using WebSQL.
  */
-bernApp.RoutingDatabase = (function () {
+bernApp.RoutesDatabase = (function () {
 
     var db;
 
@@ -20,7 +20,7 @@ bernApp.RoutingDatabase = (function () {
     };
 
     /**
-     * Inits the routing database:
+     * Inits the routes database:
      *  - creates database if it does not already exist
      *  - creates tables if they do not already exist
      *
@@ -32,7 +32,7 @@ bernApp.RoutingDatabase = (function () {
     }
 
     /**
-     * Creates all tables, that are used by the route.
+     * Creates all tables, that are used by the routes.
      *
      * @return promise
      */
@@ -41,7 +41,7 @@ bernApp.RoutingDatabase = (function () {
     }
 
     /**
-     * Clears the routing database.
+     * Clears the routes database.
      *
      * @return promise
      */
@@ -50,7 +50,7 @@ bernApp.RoutingDatabase = (function () {
     }
 
     /**
-     * Drops all tables, that are used by the routing.
+     * Drops all tables, that are used by the routes.
      *
      * @return promise
      */
