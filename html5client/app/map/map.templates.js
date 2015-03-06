@@ -11,7 +11,7 @@ bernApp.MapTemplates = (function () {
     return {
         poiPanelTemplate: _.template(
             '<h1><%- data.name %></h1>' +
-            '<img src="poiData/<%- data.imageSrc %>">' +
+            '<img src="../poiData/<%- data.imageSrc %>">' +
             '<p><%- data.content %></p>' +
             '<a href="<%- data.link %>"><%- data.link %></a>' +
             '<p />' +

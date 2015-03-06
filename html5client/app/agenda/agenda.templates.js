@@ -15,7 +15,7 @@ bernApp.AgendaTemplates = (function () {
 
             '<li>' +
             '<a href="#">' +
-            '<img style="height: 70px; width: 70px;" src="poiData/<%- item.imageSrc %>">' +
+            '<img style="height: 70px; width: 70px;" src="../poiData/<%- item.imageSrc %>">' +
                     '<h2><%- item.name %></h2>' +
                     '<p><%- item.content %></p>' +
             '</a>' +
@@ -24,7 +24,7 @@ bernApp.AgendaTemplates = (function () {
 
             '<div data-role="popup" id="actionsDialog<%- item.id %>" data-theme="b">' +
             '<ul data-role="listview" data-inset="true" style="min-width:210px;">' +
-            '<li><a href="map.html" data-ajax="false" onclick="bernApp.RoutesDatabase.addRoute();" data-role="button" data-icon="navigation">Route details</a></li>' +
+            '<li><a href="../map/map.html" data-ajax="false" onclick="bernApp.RoutesDatabase.addRoute();" data-role="button" data-icon="navigation">Route details</a></li>' +
             '<li><a href="#" onclick="$(\'#actionsDialog<%- item.id %>\').popup(\'close\'); setTimeout(function(){$(\'#deleteDialog<%- item.id %>\').popup(\'open\');}, 250);" data-role="button" data-icon="delete">Delete</a></li>' +
             '<li><a href="#" onclick="bernApp.AgendaListView.moveItemUp({\'id\': <%- item.id %>}); $(\'#actionsDialog<%- item.id %>\').popup(\'close\');" data-role="button" data-icon="arrow-u">Up</a></li>' +
             '<li><a href="#" onclick="bernApp.AgendaListView.moveItemDown({\'id\': <%- item.id %>}); $(\'#actionsDialog<%- item.id %>\').popup(\'close\');" data-role="button" data-icon="arrow-d">Down</a></li>' +
