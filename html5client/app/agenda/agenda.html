@@ -16,6 +16,7 @@
     <script src="agenda.db.js"></script>
     <script src="agenda.templates.js"></script>
     <script src="../map/routes.db.js"></script>
+    <script src="../shared/utils.js"></script>
 
     <script language="javascript">
 
@@ -24,7 +25,8 @@
         });
 
         function initAgenda(){
-            bernApp.AgendaListView.init($("#agenda"));
+            bernApp.AgendaListView.init($('#agenda'));
+            bernApp.Utils.maximizeHeight('#agenda', 150);
         }
 
     </script>
@@ -36,7 +38,7 @@
 <div data-role="page" id="agendaPage">
     <div data-role="header">
         <h1>Agenda</h1>
-        <a href="../map/map.html" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline ui-mini header-button-left ui-btn-icon-left ui-icon-home">Home</a>
+        <a href="../map/map.html" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline ui-mini header-button-left ui-btn-icon-left ui-icon-back">Back</a>
     </div>
 
     <div role="main" class="ui-content">

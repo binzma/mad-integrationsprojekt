@@ -16,7 +16,7 @@ bernApp.MapTemplates = (function () {
             '<a href="<%- data.link %>"><%- data.link %></a>' +
             '<p />' +
             '<a class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-" href="#">Directions</a>' +
-            '<a class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-" href="javascript: bernApp.AgendaDatabase.addEntry(<%- json %>);">Add to agenda</a>'
+            '<a href="#" data-ajax="false" onclick="bernApp.Navigation.addPOIToAgendaAndGoToAgenda(<%- json %>);" class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-" >Add to agenda</a>'
         )
     };
 

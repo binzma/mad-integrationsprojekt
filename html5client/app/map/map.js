@@ -21,7 +21,7 @@ bernApp.Map = (function () {
         _getPOIData().done(function(myLocationData){
             _initMap(myLocationData);
             _centerMap();
-            _maximizeHeight('#mapContentContainer', 150);
+            bernApp.Utils.maximizeHeight('#mapContentContainer', 150);
         });
     }
 
@@ -33,17 +33,6 @@ bernApp.Map = (function () {
      */
     function _getPOIData(){
         return $.getJSON("../poiData/pointsOfInterest.json");
-    }
-
-    /**
-     * Sets the height of the element matched by selector to the page height
-     * minus heightOfHeaderAndFooter.
-     *
-     * @param selector
-     * @private
-     */
-    function _maximizeHeight(selector, bordersHeight){
-        $(selector).height(($(window).height() - (bordersHeight || 0)) + 'px');
     }
 
     /**
