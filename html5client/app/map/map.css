@@ -3,3 +3,8 @@
     height: 100%;
     width: 100%;
 }
+
+.mapPanelImg{
+    max-width: 150px;
+    max-height: 150px;
+}

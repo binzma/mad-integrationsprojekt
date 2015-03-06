@@ -11,12 +11,12 @@ bernApp.MapTemplates = (function () {
     return {
         poiPanelTemplate: _.template(
             '<h1><%- data.name %></h1>' +
-            '<img src="../poiData/<%- data.imageSrc %>">' +
+            '<img class="mapPanelImg" src="../poiData/<%- data.imageSrc %>">' +
             '<p><%- data.content %></p>' +
             '<a href="<%- data.link %>"><%- data.link %></a>' +
             '<p />' +
             '<a class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-" href="#">Directions</a>' +
-            '<a href="#" data-ajax="false" onclick="bernApp.Navigation.addPOIToAgendaAndGoToAgenda(<%- json %>);" class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-" >Add to agenda</a>'
+            '<a href="#" data-ajax="false" onclick="bernApp.Navigation.addPOI(<%- json %>);" class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-" >Add to agenda</a>'
         )
     };
 

@@ -13,9 +13,9 @@ bernApp.AgendaTemplates = (function () {
             '<ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">' +
             '<% _.each(items, function(item){ %>' +
 
-            '<li>' +
+            '<li class="listEntry">' +
             '<a href="#">' +
-            '<img style="height: 70px; width: 70px;" src="../poiData/<%- item.imageSrc %>">' +
+            '<img class="listEntryImg" src="../poiData/<%- item.imageSrc %>">' +
                     '<h2><%- item.name %></h2>' +
                     '<p><%- item.content %></p>' +
             '</a>' +
@@ -24,10 +24,10 @@ bernApp.AgendaTemplates = (function () {
 
             '<div data-role="popup" id="actionsDialog<%- item.id %>" data-theme="b">' +
             '<ul data-role="listview" data-inset="true" style="min-width:210px;">' +
-            '<li><a href="../map/map.html" data-ajax="false" onclick="bernApp.RoutesDatabase.addRoute();" data-role="button" data-icon="navigation">Show directions</a></li>' +
-            '<li><a href="#" onclick="$(\'#actionsDialog<%- item.id %>\').popup(\'close\'); setTimeout(function(){$(\'#deleteDialog<%- item.id %>\').popup(\'open\');}, 250);" data-role="button" data-icon="delete">Delete entry</a></li>' +
-            '<li><a href="#" onclick="bernApp.AgendaListView.moveItemUp({\'id\': <%- item.id %>}); $(\'#actionsDialog<%- item.id %>\').popup(\'close\');" data-role="button" data-icon="arrow-u">Move up</a></li>' +
-            '<li><a href="#" onclick="bernApp.AgendaListView.moveItemDown({\'id\': <%- item.id %>}); $(\'#actionsDialog<%- item.id %>\').popup(\'close\');" data-role="button" data-icon="arrow-d">Move down</a></li>' +
+            '<li><a href="#" onclick="bernApp.Navigation.agendaDirections({\'id\': <%- item.id %>});" data-role="button" data-icon="navigation">Show directions</a></li>' +
+            '<li><a href="#" onclick="bernApp.Navigation.agendaDelete({\'id\': <%- item.id %>});" data-role="button" data-icon="delete">Delete entry</a></li>' +
+            '<li><a href="#" onclick="bernApp.Navigation.agendaUp({\'id\': <%- item.id %>});" data-role="button" data-icon="arrow-u">Move up</a></li>' +
+            '<li><a href="#" onclick="bernApp.Navigation.agendaDown({\'id\': <%- item.id %>});" data-role="button" data-icon="arrow-d">Move down</a></li>' +
             '</ul>' +
 
 

@@ -1,0 +1,13 @@
+
+#mapCanvas {
+    height: 100%;
+    width: 100%;
+}
+
+.listEntry{
+    vertical-align: middle;
+}
+.listEntryImg{
+    height: 100%;
+    max-width: 70px;
+}

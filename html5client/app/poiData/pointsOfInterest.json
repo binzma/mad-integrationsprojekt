@@ -4,7 +4,7 @@
     "typ": "bankomat",
     "locations": [
       {
-        "name": "Bundeshause",
+        "name": "Bundeshaus",
         "lat": 46.947698,
         "long": 7.424653,
         "imageSrc": "images/BundesHuse.png",
@@ -22,7 +22,7 @@
         "content": "bla2 bla bla bla bla ... ",
         "lat": 46.946584,
         "long": 7.444051,
-        "imageSrc": "avaScript Tutorial",
+        "imageSrc": "images/test.jpg",
         "link": "http://www.bs.ch"
       },
       {
@@ -30,7 +30,7 @@
         "content": "bla3 bla bla bla bla ... ",
         "lat": 46.942142,
         "long": 7.448922,
-        "imageSrc": "avaScript Tutorial",
+        "imageSrc": "images/museum.png",
         "link": "http://www.bs.ch"
       }
     ]
