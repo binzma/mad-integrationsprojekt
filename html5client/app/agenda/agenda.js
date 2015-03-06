@@ -135,7 +135,7 @@ bernApp.AgendaListView = (function () {
     }
 
     /**
-     * Generatesthe listview html contents by using the preparsed template and
+     * Generates the listview html contents by using the preparsed template and
      * the items data.
      *
      * @return html string

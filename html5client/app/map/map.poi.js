@@ -10,6 +10,12 @@ bernApp.PointOfInterestPanel = (function () {
         getHtml: getHtml
     };
 
+    /**
+     * Generates the POI panel html contents by using the preparsed template and
+     * the items data.
+     *
+     * @return html string
+     */
     function getHtml(pointOfInterestData){
         return bernApp.MapTemplates.poiPanelTemplate({
             "data": pointOfInterestData,

@@ -16,8 +16,8 @@ bernApp.AgendaTemplates = (function () {
             '<li class="listEntry">' +
             '<a href="#">' +
             '<img class="listEntryImg" src="../poiData/<%- item.imageSrc %>">' +
-                    '<h2><%- item.name %></h2>' +
-                    '<p><%- item.content %></p>' +
+            '<h2><%- item.name %></h2>' +
+            '<p><%- item.content %></p>' +
             '</a>' +
 
             '<a href="#actionsDialog<%- item.id %>" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>' +
@@ -31,16 +31,16 @@ bernApp.AgendaTemplates = (function () {
             '</ul>' +
 
 
-                '<div data-role="popup" id="deleteDialog<%- item.id %>" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">' +
-                '<div data-role="header" data-theme="a">' +
-                '<h1>Delete entry?</h1>' +
-                '</div>' +
-                '<div role="main" class="ui-content">' +
-                '<h3 class="ui-title">Are you sure you want to delete this entry from the agenda?</h3>' +
-                '<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>' +
-                '<a href="#" onclick="bernApp.AgendaListView.removeItem({\'id\': <%- item.id %>});" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a>' +
-                '</div>' +
-                '</div>' +
+            '<div data-role="popup" id="deleteDialog<%- item.id %>" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">' +
+            '<div data-role="header" data-theme="a">' +
+            '<h1>Delete entry?</h1>' +
+            '</div>' +
+            '<div role="main" class="ui-content">' +
+            '<h3 class="ui-title">Are you sure you want to delete this entry from the agenda?</h3>' +
+            '<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>' +
+            '<a href="#" onclick="bernApp.AgendaListView.removeItem({\'id\': <%- item.id %>});" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a>' +
+            '</div>' +
+            '</div>' +
 
             '</div>' +
 

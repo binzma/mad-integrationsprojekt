@@ -100,7 +100,7 @@ bernApp.Map = (function () {
     }
 
     /**
-     * Centers the map
+     * Centers the map to the area where the markers are.
      *
      * @private
      */
@@ -109,7 +109,7 @@ bernApp.Map = (function () {
         var bounds = new google.maps.LatLngBounds();
 
         //  Go through each...
-        $.each(markers, function (index, marker) {
+        _.each(markers, function(marker) {
             bounds.extend(marker.position);
         });
         //  Fit these bounds to the map
