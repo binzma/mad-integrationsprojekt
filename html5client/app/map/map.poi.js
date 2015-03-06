@@ -11,7 +11,10 @@ bernApp.PointOfInterestPanel = (function () {
     };
 
     function getHtml(pointOfInterestData){
-        return bernApp.MapTemplates.poiPanelTemplate({"data": pointOfInterestData, "json": JSON.stringify(pointOfInterestData)});
+        return bernApp.MapTemplates.poiPanelTemplate({
+            "data": pointOfInterestData,
+            "json": JSON.stringify(pointOfInterestData)
+        });
     }
 
 })();
