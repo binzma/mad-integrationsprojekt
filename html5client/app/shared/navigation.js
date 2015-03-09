@@ -72,7 +72,7 @@ bernApp.Navigation = (function () {
     }
 
     /**
-     * Home screen
+     * Navigate to the home screen
      *
      * @param item
      */
