@@ -16,16 +16,16 @@
     <script src="map.js"></script>
     <script src="map.poi.js"></script>
     <script src="map.templates.js"></script>
-    <script src="../db.js"></script>
     <script src="../agenda/agenda.db.js"></script>
-    <script src="routes.db.js"></script>
+    <script src="../shared/db.js"></script>
     <script src="../shared/navigation.js"></script>
     <script src="../shared/utils.js"></script>
+    <script src="../shared/constants.js"></script>
 
     <script language="javascript">
         $(function() {
-            bernApp.Map.init();
-            bernApp.Utils.maximizeHeight('#mapContentContainer', 121);
+            bernApp.Utils.maximizeHeight('#mapContentContainer', 134);
+            bernApp.Map.initPoi();
             bernApp.AgendaDatabase.init();
         });
     </script>
@@ -37,7 +37,6 @@
 <div data-role="page" id="mapPage">
     <div data-role="header">
         <h1>Map</h1>
-        <a href="../agenda/agenda.html" data-ajax="false" class="ui-btn-right ui-btn ui-corner-all ui-btn-inline ui-mini header-button-right ui-btn-icon-right ui-icon-calendar">Agenda</a>
     </div>
 
     <div id="mapContentContainer" role="main" class="ui-content">
@@ -52,7 +51,12 @@
     </div>
 
     <div data-role="footer">
-        <h4>Footer</h4>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="../map/map.html" data-ajax="false" class="ui-btn-active" data-icon="home" >Home</a></li>
+                <li><a href="../agenda/agenda.html" data-ajax="false" data-icon="calendar">Agenda</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 

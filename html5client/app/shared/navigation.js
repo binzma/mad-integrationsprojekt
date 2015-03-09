@@ -10,6 +10,7 @@ var bernApp = bernApp || {};
 bernApp.Navigation = (function () {
 
     return{
+        home: home,
         addPOI: addPOI,
         agendaUp: agendaUp,
         agendaDown: agendaDown,
@@ -66,80 +67,17 @@ bernApp.Navigation = (function () {
      * @param item
      */
     function getDirections(item){
+        window.location = '../directions/directions.html?' +
+        bernApp.Constants.mapDirectionsLatLongParam + '=' + item.lat + ',' + item.long;
+    }
 
-
-
-       // bernApp.RoutesDatabase.addRoute();
-
-       // window.location = "../map/map.html";
-
-         var directionsDisplay;
-         var directionsService = new google.maps.DirectionsService();
-         var current_Location;
-         var routeArray = [ ];
-         var agenda_Route = []; // This are the route in the agenda
-         var bern = new google.maps.LatLng(46.946643, 7.443965);
-         var browserSupportFlag =  new Boolean();
-         /// Get Current location
-
-         if(navigator.geolocation) {
-         browserSupportFlag = true;
-         navigator.geolocation.getCurrentPosition(function(position) {
-         current_Location = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-         map.setCenter(current_Location);
-         }, function() {
-         handleNoGeolocation(browserSupportFlag);
-         });
-         }
-         // Browser doesn't support Geolocation
-         else {
-         browserSupportFlag = false;
-         handleNoGeolocation(browserSupportFlag);
-         }
-
-         function handleNoGeolocation(errorFlag) {
-         if (errorFlag == true) {
-         alert("Geolocation service failed.");
-         initialLocation = bern;
-         }
-         map.setCenter(initialLocation);
-         }
-
-
-         function calcRoute()
-         {
-         var start = current_Location;
-         var end = agenda_Route[agenda_Route.length-1].value;
-
-
-
-         for (var i = 0; i < agenda_Route.length; i++)  // for every route in the agenda
-         {
-         routeArray.push({                          // push it to Route Array
-         location:routeArray[i].value,
-         stopover:true});
-         }
-
-         var request = {
-         origin: start,
-         destination: end,
-         waypoints: routeArray,
-         optimizeWaypoints: true,
-         travelMode: google.maps.TravelMode.DRIVING
-         };
-
-         directionsService.route(request, function(response, status) {
-         if (status == google.maps.DirectionsStatus.OK) {
-         directionsDisplay.setDirections(response);
-         var route = response.routes[0];
-
-         }
-         });
-
-
-
-         }
-
+    /**
+     * Home screen
+     *
+     * @param item
+     */
+    function home(){
+        window.location = '../map/map.html';
     }
 
 

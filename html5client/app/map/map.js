@@ -8,21 +8,81 @@ var bernApp = bernApp || {};
  */
 bernApp.Map = (function () {
 
-    var markers, map;
+    var map;
 
     return {
-        init: init
+        initPoi: initPoi,
+        initDirections: initDirections
     };
 
+
     /**
-     * Inits the map
+     * Inits the map with the poi's
      */
-    function init(){
+    function initPoi(){
+
+        var d = $.Deferred();
+
+        _initMap();
+
         _getPOIData().done(function(myLocationData){
-            _initMap(myLocationData);
-            _centerMap();
+            _drawPOIs(myLocationData);
+            d.resolve();
         });
+
+        return d;
     }
+
+    /**
+     * Inits the map with directions
+     */
+    function initDirections(targetLocation){
+
+        var d = $.Deferred();
+
+        _initMap();
+
+        _getCurrentLocation().done(function(location){
+            // draw route from current location
+            _drawDirections(location, targetLocation);
+        }).fail(function(){
+            // failed to get current location,
+            // draw route from home location..
+            _drawDirections(bernApp.Constants.homeLocation, targetLocation);
+        });
+
+        return d;
+    }
+
+    function _drawDirections(srcLocation, targetLocation){
+
+        var d = $.Deferred();
+
+        var request = {
+            origin: srcLocation,
+            destination: targetLocation,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+
+        var directionsService = new google.maps.DirectionsService();
+
+        directionsService.route(request, function(response, status) {
+            if (status === google.maps.DirectionsStatus.OK) {
+
+                var directionsDisplay = new google.maps.DirectionsRenderer();
+                directionsDisplay.setMap(map);
+                directionsDisplay.setDirections(response);
+
+                d.resolve();
+            }
+            else {
+                d.reject();
+            }
+        });
+
+        return d;
+    }
+
 
     /**
      * Loads the contents of the json file
@@ -34,12 +94,40 @@ bernApp.Map = (function () {
         return $.getJSON("../poiData/pointsOfInterest.json");
     }
 
+
+    /**
+     *
+     * @returns {*}
+     */
+    function _getCurrentLocation(){
+
+        var d = $.Deferred();
+
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                d.resolve(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+            }, function() {
+                d.reject();
+            });
+        }
+        // Browser doesn't support Geolocation
+        else {
+            d.reject();
+        }
+
+        return d;
+    }
+
+
+
     /**
      * Initializes the map
      *
      * @private
      */
-    function _initMap(myLocationData) {
+    function _drawPOIs(myLocationData) {
+
+        var markers = new Array();
 
         var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
         var icons = [
@@ -51,21 +139,6 @@ bernApp.Map = (function () {
             url: iconURLPrefix + 'msmarker.shadow.png'
         };
         var iconCounter = 0;
-
-
-        map = new google.maps.Map(document.getElementById('mapCanvas'), {
-            zoom: 10,
-            center: new google.maps.LatLng(46.946643, 7.443965),
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            mapTypeControl: false,
-            streetViewControl: false,
-            panControl: false,
-            zoomControlOptions: {
-                position: google.maps.ControlPosition.LEFT_BOTTOM
-            }
-        });
-
-        markers = new Array();
 
         _.each(myLocationData, function (myLocationCategory) {
 
@@ -97,17 +170,10 @@ bernApp.Map = (function () {
             });
 
         });
-    }
 
-    /**
-     * Centers the map to the area where the markers are.
-     *
-     * @private
-     */
-    function _centerMap() {
+        // center map
         //  Create a new viewpoint bound
         var bounds = new google.maps.LatLngBounds();
-
         //  Go through each...
         _.each(markers, function(marker) {
             bounds.extend(marker.position);
@@ -115,5 +181,27 @@ bernApp.Map = (function () {
         //  Fit these bounds to the map
         map.fitBounds(bounds);
     }
+
+
+    /**
+     * Initializes the map
+     *
+     * @private
+     */
+    function _initMap() {
+
+        map = new google.maps.Map(document.getElementById('mapCanvas'), {
+            zoom: 10,
+            center: bernApp.Constants.homeLocation,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false,
+            streetViewControl: false,
+            panControl: false,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_BOTTOM
+            }
+        });
+    }
+
 
 })();
