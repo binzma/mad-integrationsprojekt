@@ -12,7 +12,8 @@ bernApp.Map = (function () {
 
     return {
         initPoi: initPoi,
-        initDirections: initDirections
+        initDirections: initDirections,
+        initDirectionsForAgenda: initDirectionsForAgenda
     };
 
 
@@ -40,7 +41,7 @@ bernApp.Map = (function () {
     }
 
     /**
-     * Inits the map with directions
+     * Inits the map with directions from current location to one poi
      */
     function initDirections(targetLocation){
 
@@ -50,31 +51,101 @@ bernApp.Map = (function () {
 
         _getCurrentLocation().done(function(location){
             // draw route from current location
-            _drawDirections(location, targetLocation);
+            _drawDirections([location, targetLocation]);
         }).fail(function(){
             // failed to get current location,
             // draw route from home location..
-            _drawDirections(bernApp.Constants.homeLocation, targetLocation);
+            _drawDirections([bernApp.Constants.homeLocation, targetLocation]);
         });
 
         return d;
     }
 
-    function _drawDirections(srcLocation, targetLocation){
+    /**
+     * Inits the map with directions for all agenda poi's
+     */
+    function initDirectionsForAgenda(){
 
         var d = $.Deferred();
 
+        _initMap();
+
+        _getCurrentLocation().done(function(location){
+            // draw route from current location
+            _drawAgendaDirections(location);
+        }).fail(function(){
+            // failed to get current location,
+            // draw route from home location..
+            _drawAgendaDirections(bernApp.Constants.homeLocation);
+        });
+
+        return d;
+    }
+
+    /**
+     * Inits the map with directions for all agenda poi's
+     *
+     * @private
+     */
+    function _drawAgendaDirections(startLocation){
+
+        bernApp.AgendaDatabase.init().done(function(){
+
+            // get poi locations
+            bernApp.AgendaDatabase.fetchEntryItems().done(function(items){
+                var waypoints = [startLocation];
+                _.each(items, function(item){
+                    waypoints.push(bernApp.Utils.createLocation(item.lat, item.long));
+                });
+                _drawDirections(waypoints);
+            });
+
+            // if agenda is empty, display message dialog and navigate home
+            // bernApp.Navigation.home();
+
+        });
+
+    }
+
+    /**
+     * Draw directions for two or more waypoints.
+     *
+     * @param waypoints
+     * @returns promise
+     * @private
+     */
+    function _drawDirections(waypoints){
+
+        var d = $.Deferred();
+        var wayptsForRequest, srcLocation, tarLocation;
+
+        if(waypoints.length < 2){
+            d.reject();
+            return d;
+        }
+
+        srcLocation = waypoints.shift();
+        tarLocation = waypoints.pop();
+        wayptsForRequest = [];
+        _.each(waypoints, function(waypoint){
+            wayptsForRequest.push({
+                location: waypoint,
+                stopover: false
+            });
+        });
+
         var request = {
-            origin: srcLocation,
-            destination: targetLocation,
+            origin:srcLocation,
+            destination:tarLocation,
+            waypoints: wayptsForRequest,
+            optimizeWaypoints: true,
             travelMode: google.maps.TravelMode.DRIVING
         };
 
         var directionsService = new google.maps.DirectionsService();
 
-        directionsService.route(request, function(response, status) {
-            if (status === google.maps.DirectionsStatus.OK) {
-
+        directionsService.route(request, function(response, status){
+            if (status === google.maps.DirectionsStatus.OK){
                 var directionsDisplay = new google.maps.DirectionsRenderer();
                 directionsDisplay.setMap(map);
                 directionsDisplay.setDirections(response);
