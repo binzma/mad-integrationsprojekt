@@ -23,7 +23,7 @@ bernApp.MapTemplates = (function () {
             '</div>'
         ),
         categoryDropdownTemplate: _.template(
-            '<select name="select-custom-16" id="select-custom-16" data-native-menu="false">' +
+            '<select name="categoryDropdownSelect" data-native-menu="false" id="categoryDropdownSelect">' +
             '<option value="choose-one" data-placeholder="true">Filter</option>' +
             '<% _.each(categories, function(category){ %>' +
             '<option value="<%- category.typ %>"><%- category.name %></option>' +

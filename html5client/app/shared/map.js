@@ -19,14 +19,17 @@ bernApp.Map = (function () {
 
     /**
      * Inits the map with the poi's
+     *
+     * @param categoryFilter
+     * @returns promise
      */
-    function initPoi(){
+    function initPoi(categoryFilter){
 
         var d = $.Deferred();
 
         _initMap();
 
-        _getPOIData().done(function(myLocationData){
+        _getPOIData(categoryFilter).done(function(myLocationData){
             _drawPOIs(myLocationData);
             _createCategoryDropdown(myLocationData);
             d.resolve();
@@ -35,9 +38,38 @@ bernApp.Map = (function () {
         return d;
     }
 
+
+    /**
+     * Updates the poi's on the map
+     *
+     * @param categoryFilter
+     * @returns promise
+     */
+    function _updatePoi(categoryFilter){
+        var d = $.Deferred();
+
+        _initMap();
+
+        _getPOIData(categoryFilter).done(function(myLocationData){
+            _drawPOIs(myLocationData);
+            d.resolve();
+        });
+
+        return d;
+    }
+
+    /**
+     * Creates the select dropdown for the category filter
+     *
+     * @param myLocationData
+     * @private
+     */
     function _createCategoryDropdown(myLocationData){
         $("#poiCategoryFilterDropdown").html(bernApp.MapTemplates.categoryDropdownTemplate({'categories': myLocationData}))
-            .trigger("create");
+            .trigger("create")
+            .change(function(event) {
+                _updatePoi($('#categoryDropdownSelect option:selected').val());
+            });
     }
 
     /**
@@ -164,11 +196,25 @@ bernApp.Map = (function () {
     /**
      * Loads the contents of the json file
      *
+     * @param categoryFilter
      * @returns promise
      * @private
      */
-    function _getPOIData(){
-        return $.getJSON("../poiData/pointsOfInterest.json");
+    function _getPOIData(categoryFilter){
+
+        var d = $.Deferred();
+
+        $.getJSON("../poiData/pointsOfInterest.json").done(function(result){
+            if(categoryFilter){
+                // only keep results that have category.typ equals categoryFilter
+                result = result.filter(function(category){
+                    return category.typ === categoryFilter;
+                });
+            }
+            d.resolve(result);
+        });
+
+        return d;
     }
 
 
