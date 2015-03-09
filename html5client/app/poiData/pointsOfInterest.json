@@ -1,6 +1,6 @@
 [
   {
-    "name": "category 1",
+    "name": "Museen",
     "typ": "bankomat",
     "locations": [
       {
@@ -14,7 +14,21 @@
     ]
   },
   {
-    "name": "category 2",
+    "name": "Brunnen",
+    "typ": "bankomat",
+    "locations": [
+      {
+        "name": "Bundeshause",
+        "lat": 46.947698,
+        "long": 7.424653,
+        "imageSrc": "images/BundesHuse.png",
+        "content": "bla1 bla bla bla bla ... ",
+        "link": "http://www.bs.ch"
+      }
+    ]
+  },
+  {
+    "name": "Bancomat",
     "typ": "museum",
     "locations": [
       {

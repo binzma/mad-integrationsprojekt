@@ -12,3 +12,11 @@
 #poiPanelContents{
     margin-left: 20px;
 }
+
+#poiCategoryFilterDropdown{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: -5px 5px 0 0;
+    padding: 0
+}

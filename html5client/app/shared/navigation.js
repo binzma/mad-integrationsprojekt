@@ -24,8 +24,9 @@ bernApp.Navigation = (function () {
      * @param poiJson
      */
     function addPOI(poiJson){
-        bernApp.AgendaDatabase.addEntry(poiJson);
-        window.location = "../agenda/agenda.html";
+        bernApp.AgendaDatabase.addEntry(poiJson).done(function(){
+            window.location = "../agenda/agenda.html";
+        });
     }
 
     /**
@@ -68,7 +69,7 @@ bernApp.Navigation = (function () {
      */
     function getDirections(item){
         window.location = '../directions/directions.html?' +
-        bernApp.Constants.mapDirectionsLatLongParam + '=' + item.lat + ',' + item.long;
+            bernApp.Constants.mapDirectionsLatLongParam + '=' + item.lat + ',' + item.long;
     }
 
     /**

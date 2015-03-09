@@ -27,10 +27,16 @@ bernApp.Map = (function () {
 
         _getPOIData().done(function(myLocationData){
             _drawPOIs(myLocationData);
+            _createCategoryDropdown(myLocationData);
             d.resolve();
         });
 
         return d;
+    }
+
+    function _createCategoryDropdown(myLocationData){
+        $("#poiCategoryFilterDropdown").html(bernApp.MapTemplates.categoryDropdownTemplate({'categories': myLocationData}))
+            .trigger("create");
     }
 
     /**
@@ -156,7 +162,10 @@ bernApp.Map = (function () {
 
                 google.maps.event.addListener(marker, 'click', (function (marker) {
                     return function () {
-                        $("#poiPanel").html(bernApp.PointOfInterestPanel.getHtml(myLocation));
+                        $("#poiPanel").html(bernApp.MapTemplates.poiPanelTemplate({
+                            "data": myLocation,
+                            "json": JSON.stringify(myLocation)
+                        }));
                         $("#poiPanel").panel("open");
                     }
                 })(marker));

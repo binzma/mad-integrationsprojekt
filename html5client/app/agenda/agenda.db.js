@@ -80,15 +80,15 @@ bernApp.AgendaDatabase = (function () {
 
         db.transaction(function (tx) {
                 tx.executeSql('CREATE TABLE IF NOT EXISTS entries (' +
-                        'id INTEGER PRIMARY KEY ASC, ' +
-                        'name TEXT, ' +
-                        'content TEXT, ' +
-                        'lat REAL, ' +
-                        'long REAL, ' +
-                        'imageSrc TEXT, ' +
-                        'link TEXT, ' +
-                        'sortIndex INTEGER, ' +
-                        'dateAdded TEXT ' +
+                    'id INTEGER PRIMARY KEY ASC, ' +
+                    'name TEXT, ' +
+                    'content TEXT, ' +
+                    'lat REAL, ' +
+                    'long REAL, ' +
+                    'imageSrc TEXT, ' +
+                    'link TEXT, ' +
+                    'sortIndex INTEGER, ' +
+                    'dateAdded TEXT ' +
                     ')'
                 );
             },
@@ -155,33 +155,37 @@ bernApp.AgendaDatabase = (function () {
         db.transaction(function (tx) {
 
                 tx.executeSql('SELECT sortIndex FROM entries ORDER BY sortIndex DESC LIMIT 1', [], function (tx, results) {
-                    // fetch greatest sortIndex and increase it by one
-                    item.sortIndex = results.rows.length ? parseInt(results.rows.item(0).sortIndex) + 1 : 0;
+                        // fetch greatest sortIndex and increase it by one
+                        item.sortIndex = results.rows.length ? parseInt(results.rows.item(0).sortIndex) + 1 : 0;
 
-                    tx.executeSql('INSERT INTO entries (name, content, lat, long, imageSrc, link, sortIndex ,dateAdded) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [
-                            item.name,
-                            item.content,
-                            item.lat,
-                            item.long,
-                            item.imageSrc,
-                            item.link,
-                            item.sortIndex,
-                            item.dateAdded
-                        ],
-                        function (tx, result) {
-                            console.log("Added entry " + item.name +" to db.");
+                        tx.executeSql('INSERT INTO entries (name, content, lat, long, imageSrc, link, sortIndex ,dateAdded) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [
+                                item.name,
+                                item.content,
+                                item.lat,
+                                item.long,
+                                item.imageSrc,
+                                item.link,
+                                item.sortIndex,
+                                item.dateAdded
+                            ],
+                            function (tx, result) {
+                                console.log("Added entry " + item.name +" to db.");
 
-                            tx.executeSql('SELECT last_insert_rowid() AS rowid FROM entries LIMIT 1', [], function (tx, results) {
-                                item.id = results.rows.item(0).rowid;
-                                d.resolve(item);
+                                tx.executeSql('SELECT last_insert_rowid() AS rowid FROM entries LIMIT 1', [], function (tx, results) {
+                                    item.id = results.rows.item(0).rowid;
+                                    d.resolve(item);
+                                });
+
+                            },
+                            function (tx, error) {
+                                console.log("Query Error: " + error.message);
+                                d.reject();
                             });
-
-                        },
-                        function (tx, error) {
-                            console.log("Query Error: " + error.message);
-                            d.reject();
-                        });
-                });
+                    },
+                    function (tx, error) {
+                        console.log("Query Error: " + error.message);
+                        d.reject();
+                    });
 
             },
             function (error) {

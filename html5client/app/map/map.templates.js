@@ -21,6 +21,14 @@ bernApp.MapTemplates = (function () {
             '<a href="#" data-ajax="false" onclick="bernApp.Navigation.addPOI(<%- json %>);"  class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-plus">Add to agenda</a>' +
 
             '</div>'
+        ),
+        categoryDropdownTemplate: _.template(
+            '<select name="select-custom-16" id="select-custom-16" data-native-menu="false">' +
+            '<option value="choose-one" data-placeholder="true">Only show</option>' +
+            '<% _.each(categories, function(category){ %>' +
+            '<option value="<%- category.typ %>"><%- category.name %></option>' +
+            '<% }); %>' +
+            '</select>'
         )
     };
 
