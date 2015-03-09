@@ -24,8 +24,9 @@
     <script language="javascript">
 
         $(function() {
-            bernApp.AgendaListView.init($('#agenda'));
-            bernApp.Utils.maximizeHeight('#agenda', 150);
+            bernApp.AgendaListView.init($('#agenda')).done(function(){
+                bernApp.Utils.maximizeHeight('#agenda', 150);
+            });
         });
 
     </script>
