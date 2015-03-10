@@ -180,7 +180,7 @@ bernApp.Map = (function () {
         _.each(waypoints, function(waypoint){
             wayptsForRequest.push({
                 location: waypoint,
-                stopover: false
+                stopover: true
             });
         });
 
