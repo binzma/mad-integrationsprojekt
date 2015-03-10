@@ -5,17 +5,17 @@ FEATURE-LISTE
 -------------
 
 - Kartenansicht:
-    - Anzeige aktuelle Position  <--- TODO
+    - Anzeige aktuelle Position
     - Anzeige von POIs
-    - Auswahl/Filter von POIs nach Kategorie <--- TODO
+    - Auswahl/Filter von POIs nach Kategorie
     - Antippen POI : Anzeige Mini-Info -> Detailansicht
-                                       -> Routing <--- TODO
+                                       -> Routing
 
 - Detailansicht:
-    - Anzeige der Informationen spezifisch nach POI-Kategorie
+    - Anzeige der Informationen spezifisch nach POI-Kategorie <-- TODO
       Mindestens: Name, Adresse/Standort, Bilder
     - Funktion: Besuchen -> Aufnehmen in Agenda
-    - Routing (Analog Kartenansicht) <--- TODO
+    - Routing (Analog Kartenansicht)
     - Prio 2: Phone-Integration (z.B. Anrufen, etc)
 
 - Agenda:
