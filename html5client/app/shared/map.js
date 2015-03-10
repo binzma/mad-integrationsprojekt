@@ -8,12 +8,13 @@ var bernApp = bernApp || {};
  */
 bernApp.Map = (function () {
 
-    var map;
+    var map, currentPositionMarker;
 
     return {
         initPoi: initPoi,
         initDirections: initDirections,
-        initDirectionsForAgenda: initDirectionsForAgenda
+        initDirectionsForAgenda: initDirectionsForAgenda,
+        setCurrentPosition: setCurrentPosition
     };
 
 
@@ -27,8 +28,7 @@ bernApp.Map = (function () {
 
         var d = $.Deferred();
 
-        _initMap();
-
+        _initMap(true);
         _getPOIData(categoryFilter).done(function(myLocationData){
             _drawPOIs(myLocationData);
             _createCategoryDropdown(myLocationData);
@@ -48,8 +48,7 @@ bernApp.Map = (function () {
     function _updatePoi(categoryFilter){
         var d = $.Deferred();
 
-        _initMap();
-
+        _initMap(true);
         _getPOIData(categoryFilter).done(function(myLocationData){
             _drawPOIs(myLocationData);
             d.resolve();
@@ -57,6 +56,66 @@ bernApp.Map = (function () {
 
         return d;
     }
+
+
+    /**
+     * Inits the map with directions from current location to one poi
+     *
+     * @returns promise
+     */
+    function initDirections(targetLocation){
+
+        var d = $.Deferred();
+
+        _initMap(true);
+        _getCurrentLocation().done(function(location){
+            // draw route from current location
+            _drawDirections([location, targetLocation]);
+            d.resolve();
+        }).fail(function(){
+            // failed to get current location,
+            // draw route from home location..
+            _drawDirections([bernApp.Constants.homeLocation, targetLocation]);
+            d.resolve();
+        });
+
+        return d;
+    }
+
+    /**
+     * Inits the map with directions for all agenda poi's
+     *
+     * @returns promise
+     */
+    function initDirectionsForAgenda(){
+
+        var d = $.Deferred();
+
+        _initMap(true);
+        _getCurrentLocation().done(function(location){
+            // draw route from current location
+            _drawAgendaDirections(location);
+            d.resolve();
+        }).fail(function(){
+            // failed to get current location,
+            // draw route from home location..
+            _drawAgendaDirections(bernApp.Constants.homeLocation);
+            d.resolve();
+        });
+
+        return d;
+    }
+
+
+    /**
+     * Refreshes the position of the current location marker.
+     */
+    function setCurrentPosition(){
+        _getCurrentLocation().done(function(location){
+            currentPositionMarker.setPosition(location);
+        });
+    }
+
 
     /**
      * Creates the select dropdown for the category filter
@@ -72,47 +131,6 @@ bernApp.Map = (function () {
             });
     }
 
-    /**
-     * Inits the map with directions from current location to one poi
-     */
-    function initDirections(targetLocation){
-
-        var d = $.Deferred();
-
-        _initMap();
-
-        _getCurrentLocation().done(function(location){
-            // draw route from current location
-            _drawDirections([location, targetLocation]);
-        }).fail(function(){
-            // failed to get current location,
-            // draw route from home location..
-            _drawDirections([bernApp.Constants.homeLocation, targetLocation]);
-        });
-
-        return d;
-    }
-
-    /**
-     * Inits the map with directions for all agenda poi's
-     */
-    function initDirectionsForAgenda(){
-
-        var d = $.Deferred();
-
-        _initMap();
-
-        _getCurrentLocation().done(function(location){
-            // draw route from current location
-            _drawAgendaDirections(location);
-        }).fail(function(){
-            // failed to get current location,
-            // draw route from home location..
-            _drawAgendaDirections(bernApp.Constants.homeLocation);
-        });
-
-        return d;
-    }
 
     /**
      * Inits the map with directions for all agenda poi's
@@ -314,7 +332,7 @@ bernApp.Map = (function () {
      *
      * @private
      */
-    function _initMap() {
+    function _initMap(withCurrentPositionMarker) {
 
         map = new google.maps.Map(document.getElementById('mapCanvas'), {
             zoom: 10,
@@ -327,7 +345,23 @@ bernApp.Map = (function () {
                 position: google.maps.ControlPosition.LEFT_BOTTOM
             }
         });
-    }
 
+        if(withCurrentPositionMarker){
+            currentPositionMarker = new google.maps.Marker({
+                clickable: false,
+                icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+                    new google.maps.Size(22,22),
+                    new google.maps.Point(0,18),
+                    new google.maps.Point(11,11)),
+                shadow: null,
+                zIndex: 999,
+                map: map
+            });
+
+            setCurrentPosition();
+            // refresh current position every 10 seconds
+            setInterval(setCurrentPosition, 10000);
+        }
+    }
 
 })();

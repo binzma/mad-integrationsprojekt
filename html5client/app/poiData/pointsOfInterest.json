@@ -1,7 +1,35 @@
 [
   {
-    "name": "Museen",
-    "typ": "museen",
+    "name": "Bancomat",
+    "typ": "bancomat",
+    "locations": [
+      {
+        "name": "Bundeshause",
+        "lat": 46.947698,
+        "long": 7.424653,
+        "imageSrc": "images/BundesHuse.png",
+        "content": "bla1 bla bla bla bla ... ",
+        "link": "http://www.bs.ch"
+      }
+    ]
+  },
+  {
+    "name": "Regierungsgebäude",
+    "typ": "reggeb",
+    "locations": [
+      {
+        "name": "Bundeshause",
+        "lat": 46.947698,
+        "long": 7.424653,
+        "imageSrc": "images/BundesHuse.png",
+        "content": "bla1 bla bla bla bla ... ",
+        "link": "http://www.bs.ch"
+      }
+    ]
+  },
+  {
+    "name": "Restaurants",
+    "typ": "restaurant",
     "locations": [
       {
         "name": "Bundeshause",
@@ -28,8 +56,8 @@
     ]
   },
   {
-    "name": "Bancomat",
-    "typ": "bancomat",
+    "name": "Museen",
+    "typ": "museum",
     "locations": [
       {
         "name": "Kunsthalle Bern",
