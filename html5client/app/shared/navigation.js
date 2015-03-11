@@ -68,7 +68,7 @@ bernApp.Navigation = (function () {
      * @param item
      */
     function getDirections(item){
-        window.location = '../directions/directions.html?' +
+        window.location = '../map/directions.html?' +
             bernApp.Constants.mapDirectionsLatLongParam + '=' + item.lat + ',' + item.long;
     }
 
@@ -78,7 +78,7 @@ bernApp.Navigation = (function () {
      * @param item
      */
     function home(){
-        window.location = '../map/map.html';
+        window.location = '../map/poi.html';
     }
 
 
