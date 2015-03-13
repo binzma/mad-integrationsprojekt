@@ -22,10 +22,10 @@
     <script src="../shared/constants.js"></script>
 
     <script language="javascript">
-
         $(function() {
+            bernApp.Utils.maximizeHeight('#agenda', 118);
             bernApp.AgendaListView.init($('#agenda')).done(function(){
-                bernApp.Utils.maximizeHeight('#agenda', 150);
+                bernApp.Utils.maximizeHeight('#agenda', 134);
             });
         });
 
@@ -41,9 +41,7 @@
         <a href="#" data-rel="back" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline ui-mini header-button-left ui-btn-icon-left ui-icon-back">Back</a>
     </div>
 
-    <div role="main" class="ui-content">
-
-        <div id="agenda"></div>
+    <div role="main" class="ui-content"><div id="agenda"></div>
 
     </div>
 
