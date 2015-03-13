@@ -6,36 +6,30 @@ var bernApp = bernApp || {};
 /**
  * Module that provides functionality for the agenda list view.
  */
-bernApp.AgendaListView = (function () {
+(function (global) {
     'use strict';
 
-    var domContainer;
-    var data = {};
+    var self;
 
-    return {
-        render: render,
-        addItem: addItem,
-        removeItem: removeItem,
-        moveItemUp: moveItemUp,
-        moveItemDown: moveItemDown,
-        init: init,
-        clear: clear,
-        loadItemsFromDatabase: loadItemsFromDatabase
+    var AgendaListView = function AgendaListView(domContainer){
+        self = this;
+        self.data = {};
+        self.domContainer = domContainer;
     };
+
+    // expose the module to the global namespace
+    global.bernApp.AgendaListView = AgendaListView;
 
     /**
      * Inits the module.
      *
      * @return promise
      */
-    function init(domElt){
+    AgendaListView.prototype.init = function(){
         var d = $.Deferred();
-
-        domContainer = domElt;
-
         bernApp.AgendaDatabase.init().done(function(){
-            loadItemsFromDatabase().done(function(){
-                render();
+            self.loadItemsFromDatabase().done(function(){
+                self.render();
                 d.resolve();
             });
         });
@@ -48,11 +42,11 @@ bernApp.AgendaListView = (function () {
      *
      * @return promise
      */
-    function loadItemsFromDatabase(){
+    AgendaListView.prototype.loadItemsFromDatabase = function(){
         var d = $.Deferred();
         bernApp.AgendaDatabase.fetchEntryItems().done(function(items){
             // write item cache
-            data.items = items || [];
+            self.data.items = items || [];
             d.resolve();
         });
         return d;
@@ -62,20 +56,20 @@ bernApp.AgendaListView = (function () {
      * Generates the html contents of the list, triggers "create"
      * and refreshes the jquery listview.
      */
-    function render(){
-        domContainer.html(_getHtml());
-        domContainer.trigger("create");
+    AgendaListView.prototype.render = function(){
+        self.domContainer.html(_getHtml());
+        self.domContainer.trigger("create");
         $("#agendaListView").listview("refresh");
     }
 
     /**
      * Clear the list
      */
-    function clear(){
+    AgendaListView.prototype.clear = function(){
         bernApp.AgendaDatabase.clear().done(function(){
             // also clear cached items
-            data.items = [];
-            render();
+            self.data.items = [];
+            self.render();
         });
     }
 
@@ -84,12 +78,11 @@ bernApp.AgendaListView = (function () {
      *
      * @param item
      */
-    function addItem(item){
+    AgendaListView.prototype.addItem = function(item){
         bernApp.AgendaDatabase.addEntry(item).done(function(persistedItem){
             // add item to cache
-            data.items.push(persistedItem);
-
-            render();
+            self.data.items.push(persistedItem);
+            self.render();
         });
     }
 
@@ -98,14 +91,13 @@ bernApp.AgendaListView = (function () {
      *
      * @param item
      */
-    function removeItem(item){
+    AgendaListView.prototype.removeItem = function(item){
         bernApp.AgendaDatabase.removeEntry(item).done(function(){
             // remove all items that have the same title as the item to remove from cache
-            data.items = data.items.filter(function(listElt){
+            self.data.items = self.data.items.filter(function(listElt){
                 return listElt.id !== item.id;
             });
-
-            render();
+            self.render();
         });
     }
 
@@ -114,10 +106,10 @@ bernApp.AgendaListView = (function () {
      *
      * @param item
      */
-    function moveItemUp(item){
+    AgendaListView.prototype.moveItemUp = function(item){
         bernApp.AgendaDatabase.decrementSortIndex(item).done(function(){
-            loadItemsFromDatabase().done(function(){
-                render();
+            self.loadItemsFromDatabase().done(function(){
+                self.render();
             });
         });
     }
@@ -127,10 +119,10 @@ bernApp.AgendaListView = (function () {
      *
      * @param item
      */
-    function moveItemDown(item){
+    AgendaListView.prototype.moveItemDown = function(item){
         bernApp.AgendaDatabase.incrementSortIndex(item).done(function(){
-            loadItemsFromDatabase().done(function(){
-                render();
+            self.loadItemsFromDatabase().done(function(){
+                self.render();
             });
         });
     }
@@ -140,10 +132,11 @@ bernApp.AgendaListView = (function () {
      * the items data.
      *
      * @return html string
+     * @private
      */
-    function _getHtml(){
-        return bernApp.AgendaTemplates.listViewTemplate(data);
+    var _getHtml = function(){
+        return bernApp.AgendaTemplates.listViewTemplate(self.data);
     }
 
-})();
+})(window);
 

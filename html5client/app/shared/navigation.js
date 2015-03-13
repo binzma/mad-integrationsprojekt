@@ -35,8 +35,8 @@ bernApp.Navigation = (function (global) {
      *
      * @param item
      */
-    function agendaUp(item){
-        bernApp.AgendaListView.moveItemUp(item);
+    function agendaUp(agenda, item){
+        agenda.moveItemUp(item);
         $('#actionsDialog' + item.id).popup('close');
     }
 
@@ -45,8 +45,8 @@ bernApp.Navigation = (function (global) {
      *
      * @param item
      */
-    function agendaDown(item){
-        bernApp.AgendaListView.moveItemDown(item);
+    function agendaDown(agenda, item){
+        agenda.moveItemDown(item);
         $('#actionsDialog' + item.id).popup('close');
     }
 
