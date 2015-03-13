@@ -63,7 +63,7 @@ bernApp.AgendaDatabase = (function () {
                 d.reject();
             },
             function () {
-                console.log("Droped tables");
+                //console.log("Droped tables");
                 d.resolve();
             });
 
@@ -97,7 +97,7 @@ bernApp.AgendaDatabase = (function () {
                 d.reject();
             },
             function () {
-                console.log("Created tables if not exists");
+                //console.log("Created tables if not exists");
                 d.resolve();
             });
 
@@ -192,7 +192,7 @@ bernApp.AgendaDatabase = (function () {
                 console.log("Transaction Error: " + error.message);
             },
             function () {
-                console.log("Transaction Success");
+                //console.log("Transaction Success");
             }
         );
 
@@ -313,7 +313,7 @@ bernApp.AgendaDatabase = (function () {
                 d.reject();
             },
             function () {
-                console.log("Removed item with id " + item.id);
+                //console.log("Removed item with id " + item.id);
                 d.resolve();
             });
 

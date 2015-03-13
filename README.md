@@ -36,3 +36,8 @@ FEATURE-LISTE
     - Code
     - APK fürs handy (unsigniert)
 
+
+
+------------------
+- Misc features (not requirements)
+    - responsiveness trough media queries

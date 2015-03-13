@@ -1,7 +1,19 @@
 
+
 #agenda {
     height: 100%;
-    width: 100%;
+}
+
+@media (orientation: landscape){
+    #agenda {
+        max-width: 60%;
+        margin: 0 auto;
+    }
+}
+@media (orientation: portrait){
+    #agenda {
+        width: 100%;
+    }
 }
 
 .listEntry{
