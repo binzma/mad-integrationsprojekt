@@ -7,7 +7,8 @@ var bernApp = bernApp || {};
 /**
  * Module for navigation stuff that needs more than one line..
  */
-bernApp.Navigation = (function () {
+bernApp.Navigation = (function (global) {
+    'use strict';
 
     return{
         home: home,
@@ -25,7 +26,7 @@ bernApp.Navigation = (function () {
      */
     function addPOI(poiJson){
         bernApp.AgendaDatabase.addEntry(poiJson).done(function(){
-            window.location = "../agenda/agenda.html";
+            global.location = "../agenda/agenda.html";
         });
     }
 
@@ -57,7 +58,7 @@ bernApp.Navigation = (function () {
     function agendaDelete(item){
         $('#actionsDialog' + item.id).popup('close');
         // for some reason, popup('open') does not work immediately after closing one.
-        setTimeout(function(){
+        global.setTimeout(function(){
             $('#deleteDialog' + item.id).popup('open');
         }, 250);
     }
@@ -68,7 +69,7 @@ bernApp.Navigation = (function () {
      * @param item
      */
     function getDirections(item){
-        window.location = '../map/directions.html?' +
+        global.location = '../map/directions.html?' +
             bernApp.Constants.mapDirectionsLatLongParam + '=' + item.lat + ',' + item.long;
     }
 
@@ -78,8 +79,8 @@ bernApp.Navigation = (function () {
      * @param item
      */
     function home(){
-        window.location = '../map/poi.html';
+        global.location = '../map/poi.html';
     }
 
 
-})();
+})(window);

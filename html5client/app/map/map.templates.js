@@ -7,6 +7,7 @@ var bernApp = bernApp || {};
  * Module that provides templates for the map.
  */
 bernApp.MapTemplates = (function () {
+    'use strict';
 
     return {
         poiPanelTemplate: _.template(

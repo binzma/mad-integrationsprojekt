@@ -7,6 +7,7 @@ var bernApp = bernApp || {};
  * Module that provides functionality for the agenda list view.
  */
 bernApp.AgendaListView = (function () {
+    'use strict';
 
     var domContainer;
     var data = {};

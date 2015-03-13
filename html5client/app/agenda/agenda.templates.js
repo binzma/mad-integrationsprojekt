@@ -7,6 +7,7 @@ var bernApp = bernApp || {};
  * Module that provides templates for the agenda.
  */
 bernApp.AgendaTemplates = (function () {
+    'use strict';
 
     return {
         listViewTemplate: _.template(

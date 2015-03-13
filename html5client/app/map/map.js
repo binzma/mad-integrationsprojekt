@@ -7,6 +7,7 @@ var bernApp = bernApp || {};
  * Module for the map
  */
 bernApp.Map = (function () {
+    'use strict';
 
     var map, currentPositionMarker;
 
@@ -285,7 +286,7 @@ bernApp.Map = (function () {
 
             _.each(myLocationCategory.locations, function (myLocation) {
 
-                marker = new google.maps.Marker({
+                var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(myLocation.lat, myLocation.long),
                     map: map,
                     icon: icons[iconCounter],

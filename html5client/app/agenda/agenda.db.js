@@ -7,6 +7,7 @@ var bernApp = bernApp || {};
  * Module that abstracts the database for the agenda using WebSQL.
  */
 bernApp.AgendaDatabase = (function () {
+    'use strict';
 
     var db;
 

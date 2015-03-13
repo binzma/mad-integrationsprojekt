@@ -6,7 +6,8 @@ var bernApp = bernApp || {};
 /**
  * Utilities module
  */
-bernApp.Utils = (function () {
+bernApp.Utils = (function (global) {
+    'use strict';
 
     return {
         maximizeHeight: maximizeHeight,
@@ -48,7 +49,7 @@ bernApp.Utils = (function () {
      * @param selector
      */
     function maximizeHeight(selector, bordersHeight){
-        $(selector).height(($(window).height() - (bordersHeight || 0)) + 'px');
+        $(selector).height(($(global).height() - (bordersHeight || 0)) + 'px');
     }
 
     /**
@@ -61,7 +62,7 @@ bernApp.Utils = (function () {
 
         var d = $.Deferred();
 
-        var urlArr = window.location.href.split('?');
+        var urlArr = global.location.href.split('?');
 
         if(urlArr.length < 2){
             // param not found
@@ -87,4 +88,4 @@ bernApp.Utils = (function () {
     }
 
 
-})();
+})(window);
