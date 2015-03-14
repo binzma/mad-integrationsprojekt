@@ -37,7 +37,26 @@ FEATURE-LISTE
     - APK fürs handy (unsigniert)
 
 
-
 ------------------
 - Misc features (not requirements)
     - responsiveness trough media queries
+
+
+
+------------------
+HOWTO SIGN APK
+------------------
+    - create keystore
+
+        keytool -genkey -v -keystore bernapp.keystore -alias bernapp -keyalg RSA -keysize 2048 -validity 10000
+
+    - sign jar
+
+        jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore bernapp.keystore MainActivity-release-unsigned.apk bernapp
+
+    - repack signed apk
+
+        "E:\Program Files\Android SDK Tools\build-tools\22.0.0\zipalign" -v 4 MainActivity-release-unsigned.apk bernApp.apk
+
+
+
