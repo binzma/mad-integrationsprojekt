@@ -89,7 +89,9 @@ bernApp.AgendaDatabase = (function () {
                     'imageSrc TEXT, ' +
                     'link TEXT, ' +
                     'sortIndex INTEGER, ' +
-                    'dateAdded TEXT ' +
+                    'dateAdded TEXT, ' +
+                    'tel TEXT, ' +
+                    'email TEXT ' +
                     ')'
                 );
             },
@@ -159,7 +161,7 @@ bernApp.AgendaDatabase = (function () {
                         // fetch greatest sortIndex and increase it by one
                         item.sortIndex = results.rows.length ? parseInt(results.rows.item(0).sortIndex) + 1 : 0;
 
-                        tx.executeSql('INSERT INTO entries (name, content, lat, long, imageSrc, link, sortIndex ,dateAdded) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [
+                        tx.executeSql('INSERT INTO entries (name, content, lat, long, imageSrc, link, sortIndex ,dateAdded, tel, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [
                                 item.name,
                                 item.content,
                                 item.lat,
@@ -167,7 +169,9 @@ bernApp.AgendaDatabase = (function () {
                                 item.imageSrc,
                                 item.link,
                                 item.sortIndex,
-                                item.dateAdded
+                                item.dateAdded,
+                                item.tel,
+                                item.email
                             ],
                             function (tx, result) {
                                 console.log("Added entry " + item.name +" to db.");
