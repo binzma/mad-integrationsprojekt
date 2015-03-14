@@ -60,3 +60,8 @@ HOWTO SIGN APK
 
 
 
+----------------
+DEBUG on device
+----------------
+https://developer.chrome.com/devtools/docs/remote-debugging
+
