@@ -34,7 +34,16 @@ var bernApp = bernApp || {};
             });
         });
         return d;
-    }
+    };
+
+    /**
+     * Returns the dom container of the agenda list view.
+     *
+     * @returns jquery wrapped dom container
+     */
+    AgendaListView.prototype.getDomContainer = function(){
+        return self.domContainer;
+    };
 
     /**
      * Writes the items from the database into the cache.
@@ -50,17 +59,18 @@ var bernApp = bernApp || {};
             d.resolve();
         });
         return d;
-    }
+    };
 
     /**
-     * Generates the html contents of the list, triggers "create"
-     * and refreshes the jquery listview.
+     * Generates the listview html contents by using the preparsed template and
+     * the items data, triggers "create" to refresh the jquery listview.
      */
     AgendaListView.prototype.render = function(){
-        self.domContainer.html(_getHtml());
+        self.domContainer.html(
+            bernApp.AgendaTemplates.listViewTemplate(self.data)
+        );
         self.domContainer.trigger("create");
-        $("#agendaListView").listview("refresh");
-    }
+    };
 
     /**
      * Clear the list
@@ -71,7 +81,7 @@ var bernApp = bernApp || {};
             self.data.items = [];
             self.render();
         });
-    }
+    };
 
     /**
      * Adds an item and rerenders the listview.
@@ -84,7 +94,7 @@ var bernApp = bernApp || {};
             self.data.items.push(persistedItem);
             self.render();
         });
-    }
+    };
 
     /**
      * Removes an item and rerenders the listview.
@@ -99,7 +109,7 @@ var bernApp = bernApp || {};
             });
             self.render();
         });
-    }
+    };
 
     /**
      * Moves the item up in the list.
@@ -112,7 +122,7 @@ var bernApp = bernApp || {};
                 self.render();
             });
         });
-    }
+    };
 
     /**
      * Moves the item down in the list.
@@ -125,18 +135,8 @@ var bernApp = bernApp || {};
                 self.render();
             });
         });
-    }
+    };
 
-    /**
-     * Generates the listview html contents by using the preparsed template and
-     * the items data.
-     *
-     * @return html string
-     * @private
-     */
-    var _getHtml = function(){
-        return bernApp.AgendaTemplates.listViewTemplate(self.data);
-    }
 
 })(window);
 

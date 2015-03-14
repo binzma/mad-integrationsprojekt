@@ -48,8 +48,8 @@ bernApp.Utils = (function (global) {
      *
      * @param selector
      */
-    function maximizeHeight(selector, bordersHeight){
-        $(selector).height(($(global).height() - (bordersHeight || 0)) + 'px');
+    function maximizeHeight(jqElement, bordersHeight){
+        jqElement.height(($(global).height() - (bordersHeight || 0)) + 'px');
     }
 
     /**
