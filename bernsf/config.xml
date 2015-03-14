@@ -9,4 +9,8 @@
     </author>
     <content src="app/index.html" />
     <access origin="*" />
+
+    <preference name="android-targetSdkVersion" value="20" />
+    <preference name="android-minSdkVersion" value="14" />
+
 </widget>
