@@ -1,0 +1,95 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '–g',
+1 verbose cli   'ant' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 verbose node symlink C:\Program Files (x86)\nodejs\\node.exe
+5 silly cache add args [ '–g', null ]
+6 verbose cache add spec –g
+7 silly cache add args [ 'ant', null ]
+8 verbose cache add spec ant
+9 silly cache add parsed spec { raw: '–g',
+9 silly cache add   scope: null,
+9 silly cache add   name: null,
+9 silly cache add   rawSpec: '–g',
+9 silly cache add   spec: 'C:\\School_Files\\mad-integrationsprojekt\\bernsf\\–g',
+9 silly cache add   type: 'local' }
+10 silly cache add parsed spec { raw: 'ant',
+10 silly cache add   scope: null,
+10 silly cache add   name: 'ant',
+10 silly cache add   rawSpec: '',
+10 silly cache add   spec: '*',
+10 silly cache add   type: 'range' }
+11 verbose addNamed ant@*
+12 silly addNamed semver.valid null
+13 silly addNamed semver.validRange *
+14 silly addNameRange { name: 'ant', range: '*', hasData: false }
+15 silly mapToRegistry name ant
+16 silly mapToRegistry using default registry
+17 silly mapToRegistry registry https://registry.npmjs.org/
+18 silly mapToRegistry uri https://registry.npmjs.org/ant
+19 verbose addNameRange registry:https://registry.npmjs.org/ant not in flight; fetching
+20 error addLocal Could not install C:\School_Files\mad-integrationsprojekt\bernsf\–g
+21 verbose request uri https://registry.npmjs.org/ant
+22 verbose request no auth needed
+23 info attempt registry request try #1 at 13:40:07
+24 verbose request id 45ccb87cae0dd684
+25 http request GET https://registry.npmjs.org/ant
+26 http 200 https://registry.npmjs.org/ant
+27 silly get cb [ 200,
+27 silly get   { date: 'Mon, 09 Mar 2015 12:40:09 GMT',
+27 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly get     etag: '"B20556PCANUOR79P677UETL7U"',
+27 silly get     'content-type': 'application/json',
+27 silly get     'cache-control': 'max-age=60',
+27 silly get     'content-length': '10046',
+27 silly get     'accept-ranges': 'bytes',
+27 silly get     via: '1.1 varnish',
+27 silly get     age: '26',
+27 silly get     'x-served-by': 'cache-fra1234-FRA',
+27 silly get     'x-cache': 'HIT',
+27 silly get     'x-cache-hits': '1',
+27 silly get     'x-timer': 'S1425904809.222836,VS0,VE0',
+27 silly get     vary: 'Accept',
+27 silly get     'keep-alive': 'timeout=10, max=50',
+27 silly get     connection: 'Keep-Alive' } ]
+28 verbose get saving ant to C:\Users\Roly2\AppData\Roaming\npm-cache\registry.npmjs.org\ant\.cache.json
+29 silly addNameRange number 2 { name: 'ant', range: '*', hasData: true }
+30 silly addNameRange versions [ 'ant', [ '0.0.0', '0.2.0' ] ]
+31 verbose addNamed ant@0.2.0
+32 silly addNamed semver.valid 0.2.0
+33 silly addNamed semver.validRange 0.2.0
+34 silly mapToRegistry name ant
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry uri https://registry.npmjs.org/ant
+38 verbose addRemoteTarball https://registry.npmjs.org/ant/-/ant-0.2.0.tgz not in flight; adding
+39 verbose addRemoteTarball [ 'https://registry.npmjs.org/ant/-/ant-0.2.0.tgz',
+39 verbose addRemoteTarball   'f4abbe0d6f9cc4f63db5d3a557450288a0f0a394' ]
+40 info retry fetch attempt 1 at 13:40:08
+41 info attempt registry request try #1 at 13:40:08
+42 http fetch GET https://registry.npmjs.org/ant/-/ant-0.2.0.tgz
+43 http fetch 200 https://registry.npmjs.org/ant/-/ant-0.2.0.tgz
+44 silly fetchAndShaCheck shasum f4abbe0d6f9cc4f63db5d3a557450288a0f0a394
+45 verbose addTmpTarball C:\Users\Roly2\AppData\Local\Temp\npm-1888-466507a1\registry.npmjs.org\ant\-\ant-0.2.0.tgz not in flight; adding
+46 verbose addTmpTarball already have metadata; skipping unpack for ant@0.2.0
+47 silly cache afterAdd ant@0.2.0
+48 verbose afterAdd C:\Users\Roly2\AppData\Roaming\npm-cache\ant\0.2.0\package\package.json not in flight; writing
+49 verbose afterAdd C:\Users\Roly2\AppData\Roaming\npm-cache\ant\0.2.0\package\package.json written
+50 verbose stack Error: ENOENT, open 'C:\School_Files\mad-integrationsprojekt\bernsf\–g'
+50 verbose stack     at Error (native)
+51 verbose cwd C:\School_Files\mad-integrationsprojekt\bernsf
+52 error Windows_NT 6.1.7601
+53 error argv "C:\\Program Files (x86)\\nodejs\\\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "–g" "ant"
+54 error node v0.12.0
+55 error npm  v2.5.1
+56 error path C:\School_Files\mad-integrationsprojekt\bernsf\–g
+57 error code ENOENT
+58 error errno -4058
+59 error enoent ENOENT, open 'C:\School_Files\mad-integrationsprojekt\bernsf\–g'
+59 error enoent This is most likely not a problem with npm itself
+59 error enoent and is related to npm not being able to find a file.
+60 verbose exit [ -4058, true ]

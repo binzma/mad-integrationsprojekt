@@ -4,13 +4,143 @@
     "typ": "bancomat",
     "locations": [
       {
-        "name": "Bundeshause",
-        "lat": 46.947698,
-        "long": 7.424653,
-        "imageSrc": "images/BundesHuse.png",
-        "content": "bla1 bla bla bla bla ... ",
-        "link": "http://www.bs.ch"
+        "name"    : "UBS ",
+        "content" : " Die UBS AG ist eine Schweizer Grossbank mit Hauptsitzen in Zürich und Basel. Sie zählt zu den weltweit grössten Vermögensverwaltern.[",
+        "lat"     : 47.021599,
+        "long"    : 7.449889,
+        "imageSrc": "images/UBS_Bern.jpeg  ",
+        "link"    : " http://de.wikipedia.org/wiki/UBS"
+      },
+
+
+      {
+        "name"    : " Valiant Bank",
+        "content" : "Die Valiant Bank AG ist eine ausschliesslich in der Schweiz tätige Universalbank. ",
+        "lat"     : 46.948854,
+        "long"    : 7.440700,
+        "imageSrc": "images/ Valiant_Bank.jpeg ",
+        "link"    : "http://de.wikipedia.org/wiki/Valiant_Bank "
+      },
+
+
+      {
+        "name"    : "Bank Julius Baer & Co. Ltd. ",
+        "content" : "Julius Bär – die international führende Privatbank mit starken Schweizer Wurzeln ",
+        "lat"     : 46.946131,
+        "long"    : 7.439208  ,
+        "imageSrc": "images/ Julius_Baer.jpeg ",
+        "link"    : "https://www.juliusbaer.com/ch/de/home "
+      },
+
+
+      {
+        "name"    : "PostFinance ",
+        "content" : "PostFinance ist eine Tochtergesellschaft der Schweizerischen Post ",
+        "lat"     : 46.947442,
+        "long"    : 7.438972,
+        "imageSrc": "images/ PostFinance_Bern.png ",
+        "link"    : "http://de.wikipedia.org/wiki/PostFinance "
       }
+
+    ]
+  },
+  {
+    "name": "Restaurants",
+    "typ": "restaurant",
+    "locations": [
+      {
+        "name"    : "Dampfzentrale ",
+        "content" : "Die Dampfzentrale im Marziliquartier in Bern ist ein Kulturzentrum für zeitgenössischen Tanz und Musik. ",
+        "lat"     : 46.940760,
+        "long"    : 7.444196,
+        "imageSrc": "images/ Dampfzentrale.jpeg ",
+        "link"    : "http://de.wikipedia.org/wiki/Dampfzentrale_Bern "
+      },
+
+
+      {
+        "name"    : "Restaurant Rosengarten ",
+        "content" : "Das Restaurant Rosengarten liegt zentral in der wunderschönen Parkanlage, wenige Schritte vom BärenPark entfernt.  ",
+        "lat"     : 46.951369,
+        "long"    : 7.461120,
+        "imageSrc": "images/ Restaurant_Rosengarten.jpeg ",
+        "link"    : "http://www.rosengarten.be/ "
+      },
+
+
+      {
+        "name"    : "Restaurant Ringgenberg ",
+        "content" : "Die Hausspezialität «Moules et Frites» marinières (provençales oder exotiques) ist in der Saison von Oktober bis März das eigentliche Highlight auf der Speisekarte des Ringgi. ",
+        "lat"     : 46.948656,
+        "long"    : 7.447798,
+        "imageSrc": "images/ Restaurant_Ringgenberg.jpeg ",
+        "link"    : "http://www.restaurantbern.ch/restaurant-ringgenberg/ "
+      },
+
+
+      {
+        "name"    : "Restaurant Harmonie ",
+        "content" : "Die Harmonie ist eines der ältesten und traditionsreichsten Restaurants beim Zytglogge im Herzen der Altstadt von Bern.  ",
+        "lat"     : 46.947510,
+        "long"    : 7.448292,
+        "imageSrc": "images/ Restaurant_Harmonie.jpeg ",
+        "link"    : "http://www.harmonie.ch/info/infod.htm "
+      }
+    ]
+  },
+  {
+    "name": "Hotels",
+    "typ": "hotels",
+    "locations": [
+      {
+        "name"    : " BEST WESTERN HOTELBERN ",
+        "content" : " Mitten in der Stadt Bern und trotzdem verkehrsruhig",
+        "lat"     : 46.948652,
+        "long"    : 7.446382,
+        "imageSrc": "images/ Bestwestern_hotel_bern.jpeg ",
+        "link"    : "http://www.hotel-bern.ch/de/ "
+      },
+
+
+      {
+        "name"    : "Metropole Swiss Quality Hotel",
+        "content" : "Unser zentrales Stadthotel bietet 103 Betten in 59 zweckmässig eingerichteten Einzel-, Doppel- und Dreibettzimmern.",
+        "lat"     : 46.949242,
+        "long"    : 7.444741,
+        "imageSrc": "images/Metropole_Swiss_Quality_Hotel.png ",
+        "link"    : "http://www.hotelmetropole.ch/de_DE/hotel "
+      },
+
+
+      {
+        "name"    : "Hotel Continental ",
+        "content" : "Im Herzen der Berner Altstadt bietet Ihnen das Hotel Continental einen romantisch gestalteten Innenhof und eine Sonnenterrasse.",
+        "lat"     : 46.948693,
+        "long"    : 7.445867,
+        "imageSrc": "images/ Hotel_Continental.png",
+        "link"    : "http://hotel-continental-bern.getmyhotel.com/index_de.html "
+      },
+
+
+      {
+        "name"    : "Hotel Schweizerhof Bern  ",
+        "content" : "Die Schweizer Bundeshauptstadt hat ihr legendäres Hotel Schweizerhof zurück ",
+        "lat"     : 46.949019,
+        "long"    : 7.440707,
+        "imageSrc": "images/ Hotel_Schweizerhof_Bern.jpeg ",
+        "link"    : "http://www.schweizerhof-bern.ch/ "
+      },
+
+
+      {
+        "name"    : "Hotel City ",
+        "content" : "Das Hotel City am Bahnhof liegt im Zentrum von Bern, gegenüber dem Hauptbahnhof und in der Nähe der Altstadt. ",
+        "lat"     : 46.947193,
+        "long"    : 7.439788,
+        "imageSrc": "images/Hotel_City.jpeg ",
+        "link"    : " http://www.booking.com/searchresults.de.html?aid=311092;label=hotel-65137-ch-qECrD%2Axvg2OgHF1_asd7sAS2759473614%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap1t1%3Aneg;sid=a712cf97dacc7889722ec0996e76fd47;dcid=4;dest_id=-2551235;dest_type=city;highlighted_hotels=65137;hlrd=1;redirected=1;source=hotel&gclid=CMzutN3ep8QCFaIewwody2UAdA&"
+      }
+
     ]
   },
   {
@@ -24,37 +154,99 @@
         "imageSrc": "images/BundesHuse.png",
         "content": "bla1 bla bla bla bla ... ",
         "link": "http://www.bs.ch"
+      },
+      {
+        "name"    : "Schweizerische Theatersammlung ",
+        "content" : "Die Schweizerische Theatersammlung ist eine nationale Dokumentationsstelle des Schweizer Theaterschaffens. Antworten auf Fragen zur Theatergeschichte und zu aktuellen Inszenierungen finden sie in unserem Archiv, unserer Fachbibliothek und unserem Museum ",
+        "lat"     : 46.949089,
+        "long"    : 7.436429,
+        "imageSrc": "images/ Schweizerische_Theatersammlung.png ",
+        "link"    : "http://www.theatersammlung.ch/institution "
+      },
+
+
+      {
+        "name"    : "Zytglogge  ",
+        "content" : "Der Zeitglockenturm (Zytglogge) war das erste Westtor der Stadt (1191 - 1256) und zählt heute zu den wichtigsten Sehenswürdigkeiten Berns.",
+        "lat"     : 46.947963,
+        "long"    : 7.447759,
+        "imageSrc": "images/ Zytglogge.jpeg ",
+        "link"    : "http://www.bern.com/de/stadt-bern/sehenswuerdigkeiten/zeitglockenturm "
+      },
+
+
+      {
+        "name"    : "Botanischer Garten ",
+        "content" : "Der Botanische Garten Bern ist der Botanische Garten der Universität Bern am Altenbergrain 21 in Bern, Schweiz. ",
+        "lat"     : 46.952877,
+        "long"    : 7.444678,
+        "imageSrc": "images/ Botanischer_Garten.jpeg ",
+        "link"    : "http://de.wikipedia.org/wiki/Botanischer_Garten_Bern "
+      },
+
+
+      {
+        "name"    : "Bärengraben ",
+        "content" : "Der Bärenpark Bern ist ein Tiergehege in Bern. Die Anlage, in der Braunbären gehalten werden, liegt an dem der Altstadt gegenüberliegenden Ufer der Aare ",
+        "lat"     : 46.947991,
+        "long"    : 7.459609,
+        "imageSrc": "images/ Bärengraben.jpeg ",
+        "link"    : "http://de.wikipedia.org/wiki/B%C3%A4renpark_Bern "
+      },
+
+
+      {
+        "name"    : "Bundeshaus ",
+        "content" : "Als Bundeshaus wird der Sitz von Regierung und Parlament der Schweizerischen Eidgenossenschaft in der Bundesstadt Bern bezeichnet. ",
+        "lat"     : 46.946539,
+        "long"    : 7.444168,
+        "imageSrc": "images/ Bundeshaus.jpeg ",
+        "link"    : "http://de.wikipedia.org/wiki/Bundeshaus_(Bern) "
       }
     ]
   },
   {
-    "name": "Restaurants",
-    "typ": "restaurant",
+    "name": "Shopping",
+    "typ": "shopping",
     "locations": [
       {
-        "name": "Bundeshause",
-        "lat": 46.947698,
-        "long": 7.424653,
-        "imageSrc": "images/BundesHuse.png",
-        "content": "bla1 bla bla bla bla ... ",
-        "link": "http://www.bs.ch"
-      }
-    ]
-  },
-  {
-    "name": "Brunnen",
-    "typ": "brunnen",
-    "locations": [
+        "name"    : "Wankdorf Center ",
+        "lat"     :    46.963604,
+        "long"    :    7.465274,
+        "imageSrc": "images/Wankdorf_Center.png",
+        "content" : "Das Berner Einkaufszentrum mit über 36 Fachgeschäften und einem Coop Megastore bietet eine vielfältige Auswahl an Frischprodukten, Mode, Sport und Unterhaltungselektronik, einen Top-Standort und spannende, abwechslungsreiche Events.",
+        "link"    : "http://ekz-wankdorf-center.ch"
+      },
+
       {
-        "name": "Bundeshause",
-        "lat": 46.947698,
-        "long": 7.424653,
-        "imageSrc": "images/BundesHuse.png",
-        "content": "bla1 bla bla bla bla ... ",
-        "link": "http://www.bs.ch"
+        "name"    : "Westside ",
+        "lat"     :  46.944878  ,
+        "long"    :  7.373733  ,
+        "imageSrc": "images/ Westside.png",
+        "content" : "Westside ist ein Erlebniscenter mit Geschäften, Restaurants, einem Pool, Konferenzräumen, Residenzen, Hotels, Fitness-Center und einem Kino in Bern, ... ",
+        "link"    : "http://westside.ch"
+      },
+
+      {
+        "name"    : "Loeb Warenhaus",
+        "lat"     :  46.947502  ,
+        "long"    :  7.440924  ,
+        "imageSrc": "images/Loeb_Warenhaus.png ",
+        "content" : "Das Berner Traditionsunternehmen steht seit 1881 für Qualität und Ehrlichkeit im Bereich Detailhandel. Das Warenhaus im Herzen von Bern ist berühmt für ... ",
+        "link"    : "http://www.bs.ch"
+      },
+      {
+        "name"    : "Shopping-Center Brünnen ",
+        "content" : "Das Westside ist ein Freizeit- und Einkaufszentrum in Brünnen, einem Stadtteil im Westen der schweizerischen Bundesstadt Bern, und wurde am 8. Oktober 2008 eröffnet. ",
+        "lat"     : 46.942881,
+        "long"    : 7.375555,
+        "imageSrc": "images/ Shopping_Center_Brünnen.png ",
+        "link"    : " http://de.wikipedia.org/wiki/Westside_(Bern)"
       }
+
     ]
   },
+
   {
     "name": "Museen",
     "typ": "museum",
