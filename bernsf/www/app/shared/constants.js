@@ -14,7 +14,7 @@ bernApp.Constants = (function () {
         /**
          * True for verbose mode, false for production
          */
-        debug: true,
+        debug: false,
 
         /**
          * Name of the url-param used for directions
