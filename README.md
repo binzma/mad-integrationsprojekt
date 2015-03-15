@@ -65,3 +65,4 @@ DEBUG on device
 ----------------
 https://developer.chrome.com/devtools/docs/remote-debugging
 
+http://java.dzone.com/articles/debugging-android

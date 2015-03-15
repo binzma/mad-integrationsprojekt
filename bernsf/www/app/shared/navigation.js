@@ -69,6 +69,10 @@ bernApp.Navigation = (function (global) {
      * @param item
      */
     function getDirections(item){
+        if(bernApp.Constants.debug){
+            console.log('redirecting to directions with: ');
+            console.log(item);
+        }
         global.location = '../map/directions.html?' +
             bernApp.Constants.mapDirectionsLatLongParam + '=' + item.lat + ',' + item.long;
     }

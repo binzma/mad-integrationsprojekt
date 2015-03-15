@@ -8,8 +8,10 @@
         Roland, Manuel
     </author>
     <content src="app/index.html" />
+
     <access origin="tel:*" launch-external="yes"/>
     <access origin="mailto:*" launch-external="yes"/>
+
     <access origin="*" />
 
     <preference name="android-targetSdkVersion" value="20" />

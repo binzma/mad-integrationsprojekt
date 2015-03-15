@@ -80,6 +80,10 @@ bernApp.Utils = (function (global) {
             if(paramArr[0] === paramName){
                 // we found our param, resolve value
                 d.resolve(paramArr[1]);
+
+                if(bernApp.Constants.debug){
+                    console.log('got query parameter: "' + paramName + '" with value "' + paramArr[1] + '"');
+                }
             }
         });
 
