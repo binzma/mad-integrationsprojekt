@@ -12,21 +12,23 @@
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     <script src="../../bower_components/lodash/lodash.min.js"></script>
-v
-    <script src="../shared/map.js"></script>
+
+    <script src="map.js"></script>
     <script src="../shared/navigation.js"></script>
     <script src="../shared/utils.js"></script>
     <script src="../shared/constants.js"></script>
+    <script src="../shared/db.js"></script>
+    <script src="../agenda/agenda.db.js"></script>
 
     <script language="javascript">
         $(function() {
-            bernApp.Utils.maximizeHeight('#mapContentContainer', 134);
-
             bernApp.Utils.getQueryParameter(bernApp.Constants.mapDirectionsLatLongParam).done(function(mapDirectionsLatLongParam){
                 bernApp.Map.initDirections(bernApp.Utils.createLocationFromStr(mapDirectionsLatLongParam));
             }).fail(function(){
-                bernApp.Navigation.home();
+                // no specific target location param found in url, show route for all poi's in the agenda
+                bernApp.Map.initDirectionsForAgenda();
             });
+            bernApp.Utils.maximizeHeight($('#mapContentContainer'), 134);
         });
     </script>
 
@@ -49,8 +51,9 @@ v
     <div data-role="footer">
         <div data-role="navbar">
             <ul>
-                <li><a href="../map/map.html" data-ajax="false" data-icon="home">Home</a></li>
+                <li><a href="poi.html" data-ajax="false" data-icon="home">Home</a></li>
                 <li><a href="../agenda/agenda.html" data-ajax="false" data-icon="calendar">Agenda</a></li>
+                <li><a href="directions.html" data-ajax="false" class="ui-btn-active" data-icon="navigation">Directions</a></li>
             </ul>
         </div>
     </div>

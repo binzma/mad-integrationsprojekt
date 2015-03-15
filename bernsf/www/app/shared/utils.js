@@ -6,7 +6,8 @@ var bernApp = bernApp || {};
 /**
  * Utilities module
  */
-bernApp.Utils = (function () {
+bernApp.Utils = (function (global) {
+    'use strict';
 
     return {
         maximizeHeight: maximizeHeight,
@@ -26,17 +27,18 @@ bernApp.Utils = (function () {
         if(parts.length < 2){
             return;
         }
-        return createLocation({lat: parts[0], lng: parts[1]});
+        return createLocation(parts[0], parts[1]);
     }
 
     /**
      * Creates a google API location from an object containing lat and long.
      *
-     * @param latLng
+     * @param lat
+     * @param lng
      * @returns {google.maps.LatLng}
      */
-    function createLocation(latLng){
-        return new google.maps.LatLng(latLng.lat, latLng.lng);
+    function createLocation(lat, lng){
+        return new google.maps.LatLng(lat, lng);
     }
 
 
@@ -46,8 +48,8 @@ bernApp.Utils = (function () {
      *
      * @param selector
      */
-    function maximizeHeight(selector, bordersHeight){
-        $(selector).height(($(window).height() - (bordersHeight || 0)) + 'px');
+    function maximizeHeight(jqElement, bordersHeight){
+        jqElement.height(($(global).height() - (bordersHeight || 0)) + 'px');
     }
 
     /**
@@ -60,7 +62,7 @@ bernApp.Utils = (function () {
 
         var d = $.Deferred();
 
-        var urlArr = window.location.href.split('?');
+        var urlArr = global.location.href.split('?');
 
         if(urlArr.length < 2){
             // param not found
@@ -86,4 +88,4 @@ bernApp.Utils = (function () {
     }
 
 
-})();
+})(window);

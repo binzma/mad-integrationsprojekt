@@ -7,6 +7,7 @@ var bernApp = bernApp || {};
  * Constants module
  */
 bernApp.Constants = (function () {
+    'use strict';
 
     return {
         mapDirectionsLatLongParam: 'directionsLatLong',

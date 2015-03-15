@@ -1,13 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.bernsf" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>bernsf</name>
+<widget id="com.example.bernapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>bernApp</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        App für Sehenswürdigkeiten in Bern.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+        Roland, Manuel
     </author>
     <content src="app/index.html" />
+    <access origin="tel:*" launch-external="yes"/>
+    <access origin="mailto:*" launch-external="yes"/>
     <access origin="*" />
 
     <preference name="android-targetSdkVersion" value="20" />

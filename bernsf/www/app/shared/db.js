@@ -7,6 +7,7 @@ var bernApp = bernApp || {};
  * Module that abstracts the database for the bernApp using WebSQL.
  */
 bernApp.Database = (function () {
+    'use strict';
 
     return {
         open: open

@@ -7,24 +7,33 @@ var bernApp = bernApp || {};
  * Module that provides templates for the map.
  */
 bernApp.MapTemplates = (function () {
+    'use strict';
 
     return {
         poiPanelTemplate: _.template(
             '<div id="poiPanelContents">' +
             '<h1><%- data.name %></h1>' +
+            '<% if (data.imageSrc) { %>' +
             '<img class="mapPanelImg" src="../poiData/<%- data.imageSrc %>">' +
+            '<% }  %>' +
             '<p><%- data.content %></p>' +
-            '<p />' +
-
-            '<a href="<%- data.link %>" rel="external" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-action">Visit homepage</a>' +
-            '<a href="#" data-ajax="false" onclick="bernApp.Navigation.getDirections(<%- json %>);"  class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-navigation">Get directions</a>' +
-            '<a href="#" data-ajax="false" onclick="bernApp.Navigation.addPOI(<%- json %>);"  class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-plus">Add to agenda</a>' +
-
+            '<% if (data.link) { %>' +
+            '<a href="<%- data.link %>" rel="external" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-action">Visit homepage</a><br>' +
+            '<% }  %>' +
+            '<% if (data.tel) { %>' +
+            '<a href="tel:<%- data.tel %>" class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-phone"><%- data.tel %></a><br>' +
+            '<% }  %>' +
+            '<% if (data.email) { %>' +
+            '<a href="mailto:<%- data.email %>" class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-mail">Send mail</a><br>' +
+            '<% }  %>' +
+            '<a href="#" data-ajax="false" onclick="bernApp.Navigation.getDirections(<%- json %>);"  class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-navigation">Get directions</a><br>' +
+            '<a href="#" data-ajax="false" onclick="bernApp.Navigation.addPOI(<%- json %>);"  class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-plus">Add to agenda</a><br>' +
             '</div>'
         ),
+
         categoryDropdownTemplate: _.template(
-            '<select name="select-custom-16" id="select-custom-16" data-native-menu="false">' +
-            '<option value="choose-one" data-placeholder="true">Only show</option>' +
+            '<select name="categoryDropdownSelect" data-native-menu="false" id="categoryDropdownSelect">' +
+            '<option value="choose-one" data-placeholder="true">Filter</option>' +
             '<% _.each(categories, function(category){ %>' +
             '<option value="<%- category.typ %>"><%- category.name %></option>' +
             '<% }); %>' +

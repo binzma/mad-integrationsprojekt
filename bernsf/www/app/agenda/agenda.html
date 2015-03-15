@@ -22,10 +22,12 @@
     <script src="../shared/constants.js"></script>
 
     <script language="javascript">
-
         $(function() {
-            bernApp.AgendaListView.init($('#agenda'));
-            bernApp.Utils.maximizeHeight('#agenda', 150);
+            bernApp.agenda = new bernApp.AgendaListView($('#agenda'));
+            bernApp.Utils.maximizeHeight(bernApp.agenda.getDomContainer(), 118);
+            bernApp.agenda.init().done(function(){
+                bernApp.Utils.maximizeHeight(bernApp.agenda.getDomContainer(), 134);
+            });
         });
 
     </script>
@@ -40,17 +42,16 @@
         <a href="#" data-rel="back" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline ui-mini header-button-left ui-btn-icon-left ui-icon-back">Back</a>
     </div>
 
-    <div role="main" class="ui-content">
-
-        <div id="agenda"></div>
+    <div role="main" class="ui-content"><div id="agenda"></div>
 
     </div>
 
     <div data-role="footer">
         <div data-role="navbar">
             <ul>
-                <li><a href="../map/map.html" data-ajax="false" data-icon="home">Home</a></li>
+                <li><a href="../map/poi.html" data-ajax="false" data-icon="home">Home</a></li>
                 <li><a href="../agenda/agenda.html" data-ajax="false" class="ui-btn-active" data-icon="calendar">Agenda</a></li>
+                <li><a href="../map/directions.html" data-ajax="false" data-icon="navigation">Directions</a></li>
             </ul>
         </div>
     </div>
