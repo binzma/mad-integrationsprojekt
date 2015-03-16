@@ -224,6 +224,9 @@ bernApp.Map = (function () {
         var d = $.Deferred();
 
         $.getJSON("../poiData/pointsOfInterest.json").done(function(result){
+
+            _addCategoryNameToPOIs(result);
+
             if(categoryFilter){
                 // only keep results that have category.typ equals categoryFilter
                 result = result.filter(function(category){
@@ -234,6 +237,21 @@ bernApp.Map = (function () {
         });
 
         return d;
+    }
+
+
+    /**
+     * Adds the name of the categories to each of their locations.
+     *
+     * @param poiData
+     * @private
+     */
+    function _addCategoryNameToPOIs(poiData){
+        for(var i = 0; i < poiData.length; i++){
+            for(var j = 0; j < poiData[i].locations.length; j++){
+                poiData[i].locations[j].category = poiData[i].name;
+            }
+        }
     }
 
 

@@ -12,7 +12,7 @@ FEATURE-LISTE
                                        -> Routing
 
 - Detailansicht:
-    - Anzeige der Informationen spezifisch nach POI-Kategorie <-- TODO
+    - Anzeige der Informationen spezifisch nach POI-Kategorie
       Mindestens: Name, Adresse/Standort, Bilder
     - Funktion: Besuchen -> Aufnehmen in Agenda
     - Routing (Analog Kartenansicht)
@@ -27,7 +27,7 @@ FEATURE-LISTE
 
 - Allgemeines:
     - Begrenzt auf Bern
-    - Test auf Android, ev. Windows-Phone <--- TODO
+    - Test auf Android, ev. Windows-Phone
     - Nur Online
     - POIs direkt in APP integriert ("Lokale DB")
 
