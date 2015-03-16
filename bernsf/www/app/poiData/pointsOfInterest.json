@@ -23,7 +23,7 @@
         "name"    : "Schützenbrunnen",
         "lat"     :  46.947924,
         "long"    :   7.446433,
-        "imageSrc": "images/Schützenbrunnen.png",
+        "imageSrc": "images/Schuetzenbrunnen.png",
         "content" : "Der Schützenbrunnen steht in der Marktgasse in Bern und gehört zur 1542 bis 1546 entstandenen Hauptgruppe der Brunnen in Bern. Ein ursprünglich hölzerner Brunnen wurde 1527 mit einem steinernen ersetzt. "
       },
 
@@ -46,7 +46,7 @@
         "lat"     : 46.948414    ,
         "long"    : 7.447652    ,
         "imageSrc": "images/bankomat.png",
-        "Address" : "Kornhausplatz 7, 3011 Bern"
+        "address" : "Kornhausplatz 7, 3011 Bern"
       },
 
       {
@@ -54,7 +54,7 @@
         "lat"     : 46.948288    ,
         "long"    : 7.444787    ,
         "imageSrc": "images/bankomat.png",
-        "Address" : "Marktgasse 46, 3011 Bern"
+        "address" : "Marktgasse 46, 3011 Bern"
       },
 
       {
@@ -62,7 +62,7 @@
         "lat"     : 46.947398    ,
         "long"    : 7.446107    ,
         "imageSrc": "images/bankomat.png",
-        "Address" : "Amthausgasse 14, 3011 Bern"
+        "address" : "Amthausgasse 14, 3011 Bern"
       },
 
       {
@@ -70,7 +70,7 @@
         "lat"     : 46.947416    ,
         "long"    : 7.444465    ,
         "imageSrc": "images/bankomat.png",
-        "Address" : "Bundesplatz 2, 3011 Bern"
+        "address" : "Bundesplatz 2, 3011 Bern"
       }
 
     ]
@@ -86,9 +86,9 @@
         "lat"     : 46.948854,
         "long"    : 7.440700,
         "imageSrc": "images/Valiant_Bank.jpg",
-        "address" : " Bahnhofplatz 11, 3011 Bern",
-        "email"   : " info@valiant.ch",
-        "phone"   : " 031 320 91 11",
+        "address" : "Bahnhofplatz 11, 3011 Bern",
+        "email"   : "info@valiant.ch",
+        "phone"   : "031 320 91 11",
         "link"    : "http://de.wikipedia.org/wiki/Valiant_Bank"
       },
 
@@ -99,9 +99,9 @@
         "lat"     : 46.946131,
         "long"    : 7.439208  ,
         "imageSrc": "images/Julius_Baer.jpg",
-        "address" : " Bundesgasse 30, 3011 Bern",
-        "email"   : " info@juliusbaer.ch",
-        "phone"   : " 058 889 55 55",
+        "address" : "Bundesgasse 30, 3011 Bern",
+        "email"   : "info@juliusbaer.ch",
+        "phone"   : "058 889 55 55",
         "link"    : "https://www.juliusbaer.com/ch/de/home"
       },
 
@@ -112,9 +112,9 @@
         "lat"     : 46.947442,
         "long"    : 7.438972,
         "imageSrc": "images/PostFinance_Bern.png",
-        "address" : " Bärenplatz 8, 3011 Bern",
-        "email"   : " info@postfinance.ch",
-        "phone"   : " 0848 888 700",
+        "address" : "Bärenplatz 8, 3011 Bern",
+        "email"   : "info@postfinance.ch",
+        "phone"   : "0848 888 700",
         "link"    : "http://de.wikipedia.org/wiki/PostFinance"
       }
 
@@ -130,9 +130,9 @@
         "lat"     : 46.940760,
         "long"    : 7.444196,
         "imageSrc": "images/Dampfzentrale.jpg",
-        "address" : " Marzilistrasse 47 3005 Bern",
-        "email"   : " dampfzentrale@taberna.ch",
-        "phone"   : " 031 312 33 00",
+        "address" : "Marzilistrasse 47 3005 Bern",
+        "email"   : "dampfzentrale@taberna.ch",
+        "phone"   : "031 312 33 00",
         "link"    : "http://de.wikipedia.org/wiki/Dampfzentrale_Bern"
       },
 
@@ -143,9 +143,9 @@
         "lat"     : 46.951369,
         "long"    : 7.461120,
         "imageSrc": "images/Restaurant_Rosengarten.jpg",
-        "address" : " Alter Aargauerstalden 31b 3006 Bern",
-        "email"   : " info@rosengarten.be",
-        "phone"   : " 031 331 32 06",
+        "address" : "Alter Aargauerstalden 31b 3006 Bern",
+        "email"   : "info@rosengarten.be",
+        "phone"   : "031 331 32 06",
         "link"    : "http://www.rosengarten.be/ "
       },
 
@@ -156,9 +156,9 @@
         "lat"     : 46.948656,
         "long"    : 7.447798,
         "imageSrc": "images/Restaurant_Ringgenberg.jpg",
-        "address" : " Kornhausplatz 19 3011 Bern",
-        "email"   : " ringgenberg@taberna.ch",
-        "phone"   : " 031 311 25 40",
+        "address" : "Kornhausplatz 19 3011 Bern",
+        "email"   : "ringgenberg@taberna.ch",
+        "phone"   : "031 311 25 40",
         "link"    : "http://www.restaurantbern.ch/restaurant-ringgenberg/ "
       },
 
@@ -169,9 +169,9 @@
         "lat"     : 46.947510,
         "long"    : 7.448292,
         "imageSrc": "images/Restaurant_Harmonie.jpg",
-        "address" : " Hotelgasse 3 3011 Bern",
-        "email"   : " harmonie@harmonie.ch",
-        "phone"   : " 031 313 11 41",
+        "address" : "Hotelgasse 3 3011 Bern",
+        "email"   : "harmonie@harmonie.ch",
+        "phone"   : "031 313 11 41",
         "link"    : "http://www.harmonie.ch/info/infod.htm"
       }
     ]
@@ -186,9 +186,9 @@
         "lat"     : 46.948652,
         "long"    : 7.446382,
         "imageSrc": "images/Bestwestern_hotel_bern.jpg",
-        "address" : " Zeughausgasse 9 3011 Bern",
-        "email"   : " hotelbern@hotelbern.ch",
-        "phone"   : " 031 329 22 22",
+        "address" : "Zeughausgasse 9 3011 Bern",
+        "email"   : "hotelbern@hotelbern.ch",
+        "phone"   : "031 329 22 22",
         "link"    : "http://www.hotel-bern.ch/de/ "
       },
 
@@ -199,9 +199,9 @@
         "lat"     : 46.949242,
         "long"    : 7.444741,
         "imageSrc": "images/Metropole_Swiss_Quality_Hotel.png",
-        "address" : " Zeughausgasse 28 3011 Bern",
-        "email"   : " info@hotelmetropole.ch",
-        "phone"   : " 031 329 94 94",
+        "address" : "Zeughausgasse 28 3011 Bern",
+        "email"   : "info@hotelmetropole.ch",
+        "phone"   : "031 329 94 94",
         "link"    : "http://www.hotelmetropole.ch/de_DE/hotel"
       },
 
@@ -212,9 +212,9 @@
         "lat"     : 46.948693,
         "long"    : 7.445867,
         "imageSrc": "images/Hotel_Continental.png",
-        "address" : " Zeughausgasse 27 3011 Bern",
+        "address" : "Zeughausgasse 27 3011 Bern",
         "email"   : "info@continental.ch",
-        "phone"   : " 031664422",
+        "phone"   : "031664422",
         "link"    : "http://hotel-continental-bern.getmyhotel.com/index_de.html"
       },
 
@@ -225,9 +225,9 @@
         "lat"     : 46.949019,
         "long"    : 7.440707,
         "imageSrc": "images/Hotel_Schweizerhof_Bern.jpg",
-        "address" : " Bahnhofplatz 11, 3011 Bern",
-        "email"   : " info@schweizerhof-bern.ch",
-        "phone"   : " 031 326 80 80",
+        "address" : "Bahnhofplatz 11, 3011 Bern",
+        "email"   : "info@schweizerhof-bern.ch",
+        "phone"   : "031 326 80 80",
         "link"    : "http://www.schweizerhof-bern.ch/ "
       },
 
@@ -238,10 +238,10 @@
         "lat"     : 46.947193,
         "long"    : 7.439788,
         "imageSrc": "images/Hotel_City.jpg",
-        "address" : " Bubenbergplatz 7 3011 Bern",
-        "email"   : " cityab@fhotels.ch",
-        "phone"   : " 031 311 53 77",
-        "link"    : " http://www.booking.com/searchresults.de.html?aid=311092;label=hotel-65137-ch-qECrD%2Axvg2OgHF1_asd7sAS2759473614%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap1t1%3Aneg;sid=a712cf97dacc7889722ec0996e76fd47;dcid=4;dest_id=-2551235;dest_type=city;highlighted_hotels=65137;hlrd=1;redirected=1;source=hotel&gclid=CMzutN3ep8QCFaIewwody2UAdA&"
+        "address" : "Bubenbergplatz 7 3011 Bern",
+        "email"   : "cityab@fhotels.ch",
+        "phone"   : "031 311 53 77",
+        "link"    : "http://www.booking.com/searchresults.de.html?aid=311092;label=hotel-65137-ch-qECrD%2Axvg2OgHF1_asd7sAS2759473614%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap1t1%3Aneg;sid=a712cf97dacc7889722ec0996e76fd47;dcid=4;dest_id=-2551235;dest_type=city;highlighted_hotels=65137;hlrd=1;redirected=1;source=hotel&gclid=CMzutN3ep8QCFaIewwody2UAdA&"
       }
 
     ]
@@ -256,9 +256,9 @@
         "lat"     : 46.947220,
         "long"    : 7.451203,
         "imageSrc": "images/munster.jpg",
-        "address" : " Münsterplatz 1, 3000 Bern",
-        "email"   : " info@theater.ch",
-        "phone"   : " 031 312 04 62",
+        "address" : "Münsterplatz 1, 3000 Bern",
+        "email"   : "info@theater.ch",
+        "phone"   : "031 312 04 62",
         "link"    : "www.bernermuenster.ch"
       },
       {
@@ -267,9 +267,9 @@
         "lat"     : 46.949089,
         "long"    : 7.436429,
         "imageSrc": "images/Schweizerische_Theatersammlung.png",
-        "address" : " Schanzenstrasse 15 3008 Bern",
-        "email"   : " info@theater.ch",
-        "phone"   : " 031 301 52 52",
+        "address" : "Schanzenstrasse 15 3008 Bern",
+        "email"   : "info@theater.ch",
+        "phone"   : "031 301 52 52",
         "link"    : "http://www.theatersammlung.ch/institution"
       },
 
@@ -280,9 +280,9 @@
         "lat"     : 46.947963,
         "long"    : 7.447759,
         "imageSrc": "images/Zytglogge.jpg",
-        "address" : " Bim Zytglogge 1 3011 Bern",
-        "email"   : " info@zytglogge.ch",
-        "phone"   : " 031 311 04 45",
+        "address" : "Bim Zytglogge 1 3011 Bern",
+        "email"   : "info@zytglogge.ch",
+        "phone"   : "031 311 04 45",
         "link"    : "http://www.bern.com/de/stadt-bern/sehenswuerdigkeiten/zeitglockenturm"
       },
       {
@@ -291,9 +291,9 @@
         "lat"     : 46.952877,
         "long"    : 7.444678,
         "imageSrc": "images/Botanischer_Garten.jpg",
-        "address" : " Altenbergrain 21, 3013 Bern",
-        "email"   : " info@botanischergarten.ch",
-        "phone"   : " 031 631 49 45",
+        "address" : "Altenbergrain 21, 3013 Bern",
+        "email"   : "info@botanischergarten.ch",
+        "phone"   : "031 631 49 45",
         "link"    : "http://de.wikipedia.org/wiki/Botanischer_Garten_Bern"
       },
 
@@ -303,10 +303,10 @@
         "content" : "Der Bärenpark Bern ist ein Tiergehege in Bern. Die Anlage, in der Braunbären gehalten werden, liegt an dem der Altstadt gegenüberliegenden Ufer der Aare",
         "lat"     : 46.947991,
         "long"    : 7.459609,
-        "imageSrc": "images/Bärengraben.jpg",
-        "address" : " Grosser Muristalden 6, 3006 Bern",
-        "email"   : " info@baerenpark.ch",
-        "phone"   : " 031 357 15 25",
+        "imageSrc": "images/Baerengraben.jpg",
+        "address" : "Grosser Muristalden 6, 3006 Bern",
+        "email"   : "info@baerenpark.ch",
+        "phone"   : "031 357 15 25",
         "link"    : "http://de.wikipedia.org/wiki/B%C3%A4renpark_Bern"
       },
 
@@ -317,9 +317,9 @@
         "lat"     : 46.946539,
         "long"    : 7.444168,
         "imageSrc": "images/Bundeshaus.jpg",
-        "address" : " Bundesplatz 3, 3005 Bern",
-        "email"   : " info@parlament.ch",
-        "phone"   : " 031 322 87 90",
+        "address" : "Bundesplatz 3, 3005 Bern",
+        "email"   : "info@parlament.ch",
+        "phone"   : "031 322 87 90",
         "link"    : "http://de.wikipedia.org/wiki/Bundeshaus_(Bern) "
       }
     ]
@@ -333,9 +333,9 @@
         "lat"     :    46.963604,
         "long"    :    7.465274,
         "imageSrc": "images/Wankdorf_Center.png",
-        "address" : " Papiermühlestrasse 85, 3014 Bern",
-        "email"   : " info@wankdorf.ch",
-        "phone"   : " 031 335 89",
+        "address" : "Papiermühlestrasse 85, 3014 Bern",
+        "email"   : "info@wankdorf.ch",
+        "phone"   : "031 335 89",
         "content" : "Das Berner Einkaufszentrum mit über 36 Fachgeschäften und einem Coop Megastore bietet eine vielfältige Auswahl an Frischprodukten, Mode, Sport und Unterhaltungselektronik, einen Top-Standort und spannende, abwechslungsreiche Events.",
         "link"    : "http://ekz-wankdorf-center.ch"
       },
@@ -344,9 +344,9 @@
         "lat"     :  46.947502  ,
         "long"    :  7.440924  ,
         "imageSrc": "images/Loeb_Warenhaus.png",
-        "address" : " Spitalgasse 47, 3001 Bern",
-        "email"   : " info@loeb.ch",
-        "phone"   : " 031 320 71 11",
+        "address" : "Spitalgasse 47, 3001 Bern",
+        "email"   : "info@loeb.ch",
+        "phone"   : "031 320 71 11",
         "content" : "Das Berner Traditionsunternehmen steht seit 1881 für Qualität und Ehrlichkeit im Bereich Detailhandel. Das Warenhaus im Herzen von Bern ist berühmt für ... ",
         "link"    : "http://www.bs.ch"
       }
@@ -363,9 +363,9 @@
         "lat": 46.9443,
         "long": 7.4494,
         "imageSrc": "images/Kunsthalle_Bern.jpg",
-        "address" : " Helvetiaplatz 1, 3005 Bern",
-        "email"   : " info@kunsthalle.ch",
-        "phone"   : " 031 350 00 40",
+        "address" : "Helvetiaplatz 1, 3005 Bern",
+        "email"   : "info@kunsthalle.ch",
+        "phone"   : "031 350 00 40",
         "link": "http://www.kunsthalle-bern.ch/"
       },
       {
@@ -374,9 +374,9 @@
         "lat": 46.9430,
         "long": 7.4493,
         "imageSrc": "images/Historic_museum_Bern1.jpg",
-        "address" : " Helvetiaplatz 5, 3005 Bern",
-        "email"   : " info@bhm.ch",
-        "phone"   : " 031 350 77 11",
+        "address" : "Helvetiaplatz 5, 3005 Bern",
+        "email"   : "info@bhm.ch",
+        "phone"   : "031 350 77 11",
         "link": "http://www.bhm.ch/"
       },
       {
@@ -385,9 +385,9 @@
         "lat": 46.9418,
         "long": 7.4500,
         "imageSrc": "images/Historic_museum_Bern1.jpg",
-        "address" : " Helvetiastrasse 16, 3005 Bern",
-        "email"   : " communication@mfk.ch",
-        "phone"   : " 031 357 55 55",
+        "address" : "Helvetiastrasse 16, 3005 Bern",
+        "email"   : "communication@mfk.ch",
+        "phone"   : "031 357 55 55",
         "link": "http://www.mfk.ch/"
       },
       {
@@ -396,9 +396,9 @@
         "lat": 46.9421,
         "long": 7.4489,
         "imageSrc": "images/Natural_History_Museum.png",
-        "address" : " Bernastrasse 15, 3005 Bern",
-        "email"   : " info@museum.ch",
-        "phone"   : " 031 350 71 11",
+        "address" : "Bernastrasse 15, 3005 Bern",
+        "email"   : "info@museum.ch",
+        "phone"   : "031 350 71 11",
         "link": "www.nmbe.ch/"
       },
       {
@@ -407,9 +407,9 @@
         "lat": 46.9430,
         "long": 7.4493,
         "imageSrc": "images/Kunstmuseum_Bern.jpg",
-        "address" : " Hodlerstrasse 8-12, 3011 Bern",
-        "email"   : " info@kunstmuseumbern.ch",
-        "phone"   : " 031 328 09 44",
+        "address" : "Hodlerstrasse 8-12, 3011 Bern",
+        "email"   : "info@kunstmuseumbern.ch",
+        "phone"   : "031 328 09 44",
         "link": "www.kunstmuseumbern.ch/"
       },
       {
@@ -418,9 +418,9 @@
         "lat": 46.9478,
         "long": 7.4493,
         "imageSrc": "images/Albert_einstein_house_bern.jpg",
-        "address" : " Kramgasse 49, 3011 Bern",
-        "email"   : " info@einsteinhaus.ch",
-        "phone"   : " 031 312 00 91",
+        "address" : "Kramgasse 49, 3011 Bern",
+        "email"   : "info@einsteinhaus.ch",
+        "phone"   : "031 312 00 91",
         "link": "http://www.einstein-bern.ch/"
       },
       {
@@ -429,8 +429,8 @@
         "lat": 46.9441,
         "long": 7.4482,
         "imageSrc": "images/Alpines_Museum_Bern.jpg",
-        "address" : " Helvetiaplatz 4, 3005 Bern",
-        "email"   : " info@museum.ch",
+        "address" : "Helvetiaplatz 4, 3005 Bern",
+        "email"   : "info@museum.ch",
         "phone"   : "031 350 04 40",
         "link": "http://www.alpinesmuseum.ch/"
 
