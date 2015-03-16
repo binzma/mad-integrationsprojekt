@@ -32,6 +32,9 @@ FEATURE-LISTE
     - POIs direkt in APP integriert ("Lokale DB")
 
 
+    TODO: höhe neu berechnen nach orientierungswechsel
+
+
 - Abgabe:
     - Code
     - APK fürs handy (unsigniert)
