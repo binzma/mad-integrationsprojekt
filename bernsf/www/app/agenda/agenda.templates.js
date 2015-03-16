@@ -16,7 +16,7 @@ bernApp.AgendaTemplates = (function () {
 
             '<li class="listEntry">' +
             '<a href="#">' +
-            '<img class="listEntryImg" src="../poiData/<%- item.imageSrc %>">' +
+            '<img class="listEntryImg" src="../resources/poiData/<%- item.imageSrc %>">' +
             '<h2><%- item.name %></h2>' +
             '<p><%- item.address %></p>' +
             '</a>' +

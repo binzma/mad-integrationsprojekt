@@ -223,7 +223,7 @@ bernApp.Map = (function () {
 
         var d = $.Deferred();
 
-        $.getJSON("../poiData/pointsOfInterest.json").done(function(result){
+        $.getJSON("../resources/poiData/pointsOfInterest.json").done(function(result){
 
             _addCategoryNameToPOIs(result);
 

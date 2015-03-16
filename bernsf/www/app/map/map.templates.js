@@ -15,7 +15,7 @@ bernApp.MapTemplates = (function () {
             '<span class="poi-panel-category">(Category: <%- data.category %>)</span>' +
             '<h1 class="poi-panel-title"><%- data.name %></h1>' +
             '<% if (data.imageSrc) { %>' +
-            '<img class="poi-panel-image" src="../poiData/<%- data.imageSrc %>">' +
+            '<img class="poi-panel-image" src="../resources/poiData/<%- data.imageSrc %>">' +
             '<% }  %>' +
             '<p class="poi-panel-content"><%- data.content %></p>' +
             '<p class="poi-panel-address"><%- data.address %></p>' +
