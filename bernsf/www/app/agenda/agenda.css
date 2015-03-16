@@ -2,7 +2,7 @@
 
 #agenda {
     height: 100%;
-    margin-top: -16px;
+    margin-top: 0px;
 }
 
 @media (orientation: landscape){
