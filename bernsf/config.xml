@@ -4,6 +4,7 @@
     <description>
         App für Sehenswürdigkeiten in Bern.
     </description>
+    <icon src="www/app/resources/appicon/android/appIcon.png" />
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Roland, Manuel
     </author>
@@ -16,5 +17,7 @@
 
     <preference name="android-targetSdkVersion" value="20" />
     <preference name="android-minSdkVersion" value="14" />
+
+
 
 </widget>
