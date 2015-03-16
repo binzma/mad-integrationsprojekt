@@ -22,8 +22,8 @@ bernApp.MapTemplates = (function () {
             '<% if (data.link) { %>' +
             '<a href="<%- data.link %>" rel="external" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-action">Visit homepage</a><br>' +
             '<% }  %>' +
-            '<% if (data.tel) { %>' +
-            '<a href="tel:<%- data.tel %>" class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-phone"><%- data.tel %></a><br>' +
+            '<% if (data.phone) { %>' +
+            '<a href="tel:<%- data.phone %>" class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-phone"><%- data.phone %></a><br>' +
             '<% }  %>' +
             '<% if (data.email) { %>' +
             '<a href="mailto:<%- data.email %>" class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-icon-left ui-icon-mail">Send mail</a><br>' +

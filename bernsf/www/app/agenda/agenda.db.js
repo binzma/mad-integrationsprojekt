@@ -90,7 +90,7 @@ bernApp.AgendaDatabase = (function () {
                     'link TEXT, ' +
                     'sortIndex INTEGER, ' +
                     'dateAdded TEXT, ' +
-                    'tel TEXT, ' +
+                    'phone TEXT, ' +
                     'email TEXT, ' +
                     'address TEXT ' +
                     ')'
@@ -162,7 +162,7 @@ bernApp.AgendaDatabase = (function () {
                         // fetch greatest sortIndex and increase it by one
                         item.sortIndex = results.rows.length ? parseInt(results.rows.item(0).sortIndex) + 1 : 0;
 
-                        tx.executeSql('INSERT INTO entries (name, content, lat, long, imageSrc, link, sortIndex, dateAdded, tel, email, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [
+                        tx.executeSql('INSERT INTO entries (name, content, lat, long, imageSrc, link, sortIndex, dateAdded, phone, email, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [
                                 item.name,
                                 item.content,
                                 item.lat,
@@ -171,7 +171,7 @@ bernApp.AgendaDatabase = (function () {
                                 item.link,
                                 item.sortIndex,
                                 item.dateAdded,
-                                item.tel,
+                                item.phone,
                                 item.email,
                                 item.address
                             ],
