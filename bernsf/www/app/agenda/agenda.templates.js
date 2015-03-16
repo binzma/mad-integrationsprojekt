@@ -18,10 +18,10 @@ bernApp.AgendaTemplates = (function () {
             '<a href="#">' +
             '<img class="listEntryImg" src="../poiData/<%- item.imageSrc %>">' +
             '<h2><%- item.name %></h2>' +
-            '<p><%- item.content %></p>' +
+            '<p><%- item.address %></p>' +
             '</a>' +
 
-            '<a href="#actionsDialog<%- item.id %>" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>' +
+            '<a href="#actionsDialog<%- item.id %>" data-rel="popup" data-position-to="window" data-transition="pop">popup</a>' +
 
             '<div data-role="popup" id="actionsDialog<%- item.id %>" data-theme="b">' +
             '<ul data-role="listview" data-inset="true" style="min-width:210px;">' +
