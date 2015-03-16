@@ -27,6 +27,10 @@
             bernApp.Map.initPoi();
             bernApp.AgendaDatabase.init();
         });
+
+        $(window).on("orientationchange", function() {
+            bernApp.Utils.maximizeHeight($('#mapContentContainer'), 134);
+        });
     </script>
 
 </head>

@@ -28,8 +28,11 @@
             bernApp.agenda.init().done(function(){
                 bernApp.Utils.maximizeHeight(bernApp.agenda.getDomContainer(), 134);
             });
-        });
 
+            $(window).on("orientationchange", function() {
+                bernApp.Utils.maximizeHeight(bernApp.agenda.getDomContainer(), 134);
+            });
+        });
     </script>
 
 </head>

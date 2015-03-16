@@ -30,6 +30,10 @@
             });
             bernApp.Utils.maximizeHeight($('#mapContentContainer'), 134);
         });
+
+        $(window).on("orientationchange", function() {
+            bernApp.Utils.maximizeHeight($('#mapContentContainer'), 134);
+        });
     </script>
 
 </head>
