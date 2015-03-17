@@ -18,7 +18,13 @@ bernApp.AgendaTemplates = (function () {
             '<a href="#">' +
             '<img class="listEntryImg" src="../resources/poiData/<%- item.imageSrc %>">' +
             '<h2><%- item.name %></h2>' +
+
+            '<% if (item.address !== "undefined") { %>' +
             '<p><%- item.address %></p>' +
+            '<% } else { %>' +
+            '<p><%- item.content %></p>' +
+            '<% } %>' +
+
             '</a>' +
 
             '<a href="#actionsDialog<%- item.id %>" data-rel="popup" data-position-to="window" data-transition="pop">popup</a>' +
